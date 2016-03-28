@@ -6,7 +6,7 @@ head
 body
   div.nav
     h2 Zoom
-    - var zoomArr = [0.25, 0.5, 1, 4, 10, 100]
+    - var zoomArr = [0.12, 0.25, 0.5, 1, 4, 10, 100]
     - var def = 1
     - function to2period(a){
     -  var m = String(a*100)
@@ -27,7 +27,8 @@ body
     h2 Time (1 min = 1 eath year)    
     
     div.content
-      each val in ['mercury', 'venus', 'earth', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune']
+      div#sun
+      each val in ['neptune', 'uranus', 'saturn', 'jupiter', 'mars', 'earth', 'venus', 'mercury']
         div.orbit(id="#{val}")
           div.orbit-radius
             input(type="radio", name="planet" id="#{val}")

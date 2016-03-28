@@ -22,8 +22,8 @@
       position: absolute
       top: 50%
       left: -3px
-      transform: translateY(-50%)
-      animation: rotate 8s infinite
+      transform: translateY(-50%) rotate(180deg)
+      animation: rotate 0s infinite
       animation-timing-function: linear
       +transition
 
@@ -36,6 +36,18 @@
         +transition
 
 input:checked
+  @each $z in $zoom-arr
+    $i: str-replace( inspect($z), "\." )
+
+    &[name=zoom]#x#{$i} ~ .content #sun
+      width: $z*$earth-size*109px
+      height: $z*$earth-size*109px
+      background: yellow
+      border-radius: 50%
+      +center(true)
+      +transition
+
+
   @for $i from 0 to length($planets)
     $planet: nth($planets, $i+1)
 
@@ -44,19 +56,27 @@ input:checked
 
       &[name=zoom]#x#{$i} ~ .content
         div.orbit##{unquote(nth($planet, 1))}
-          width: $z*nth($planet, 2)*100px
-          height: $z*nth($planet, 2)*100px
+          width: $z*nth($planet, 2)*$distance*2px
+          height: $z*nth($planet, 2)*$distance*2px
 
           .orbit-radius
-            $pw: nth($planet, 3)
+            $pw: nth($planet, 3)*$earth-size
             display: inline-block
             width: calc(100% + #{$z*$pw*1px} + 2px)
             left: ($z*($pw/2) + 1)*-1px
             animation-duration: nth($planet, 4)/365*60s
 
             .planet
-              // width: $z*$pw*1px
-              // height: $z*$pw*1px
-              width: $z*0.000085*100px
-              height: $z*0.000085*100px
+              width: $z*$pw*1px
+              height: $z*$pw*1px
               background: unquote(nth($planet, 5))
+
+          &:hover
+            .orbit-radius
+              $pw: round( nth($planet, 3)*$earth-size*1000 )
+              width: calc(100% + #{$z*$pw*1px} + 2px)
+              left: ($z*($pw/2) + 1)*-1px
+
+              .planet
+                width: $z*$pw*1px
+                height: $z*$pw*1px
