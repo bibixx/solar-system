@@ -1,0 +1,73 @@
+body {
+  font-family: "Helvetica Neue";
+}
+
+.nav {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
+  display: block;
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  padding: 5px;
+}
+
+.nav h2 {
+  color: white;
+  margin: 5px 0px;
+}
+
+.nav input {
+  display: none;
+}
+
+.nav label {
+  display: block;
+  float: left;
+  padding: 5px 10px;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: none;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+
+.nav label:first-of-type {
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 5px 0px 0px 5px;
+}
+
+.nav label:last-of-type {
+  border-radius: 0px 5px 5px 0px;
+}
+
+.nav label:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav .content {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  bottom: -9px;
+  right: -9px;
+  z-index: -1;
+  transition: all .2s ease-in-out;
+}
+
+.nav input:checked + label {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.nav input:checked[name=zoom]#x05 ~ .content {
+  background: royalblue;
+}
+
+.nav input:checked[name=zoom]#x1 ~ .content {
+  background: lightblue;
+}
+
+.nav input:checked[name=zoom]#x2 ~ .content {
+  background: purple;
+}
