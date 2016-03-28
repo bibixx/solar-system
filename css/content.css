@@ -1,0 +1,11 @@
+input:checked[name=zoom]#x05 ~ .content {
+  background: royalblue;
+}
+
+input:checked[name=zoom]#x1 ~ .content {
+  background: lightblue;
+}
+
+input:checked[name=zoom]#x2 ~ .content {
+  background: purple;
+}

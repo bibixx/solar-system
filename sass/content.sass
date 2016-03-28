@@ -1,0 +1,40 @@
+.content
+  background: black
+
+  div.orbit
+    width: 100px
+    height: 100px
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    +transition
+    border: 2px solid rgba(255,255,255,0.15)
+    border-radius: 50%
+
+    input
+      display: none
+
+    .orbit-radius
+      display: inline-block
+      width: calc(100% + 10px)
+      height: auto
+      position: absolute
+      top: 50%
+      left: -3px
+      transform: translateY(-50%)
+
+      .planet
+        display: block
+        width: 4px
+        height: 4px
+        border-radius: 50%
+        background: green
+
+input:checked
+  @each $z in $zoom-arr
+    $i: str-replace( inspect($z), "\." )
+    &[name=zoom]#x#{$i} ~ .content
+      div.orbit
+        width: $z*100px
+        height: $z*100px
