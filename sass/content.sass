@@ -17,12 +17,15 @@
 
     .orbit-radius
       display: inline-block
-      width: calc(100% + 10px)
+      width: calc(100% + 4px + 2px)
       height: auto
       position: absolute
       top: 50%
       left: -3px
       transform: translateY(-50%)
+      animation: rotate 8s infinite
+      animation-timing-function: linear
+      +transition
 
       .planet
         display: block
@@ -30,11 +33,30 @@
         height: 4px
         border-radius: 50%
         background: green
+        +transition
 
 input:checked
-  @each $z in $zoom-arr
-    $i: str-replace( inspect($z), "\." )
-    &[name=zoom]#x#{$i} ~ .content
-      div.orbit
-        width: $z*100px
-        height: $z*100px
+  @for $i from 0 to length($planets)
+    $planet: nth($planets, $i+1)
+
+    @each $z in $zoom-arr
+      $i: str-replace( inspect($z), "\." )
+
+      &[name=zoom]#x#{$i} ~ .content
+        div.orbit##{unquote(nth($planet, 1))}
+          width: $z*nth($planet, 2)*100px
+          height: $z*nth($planet, 2)*100px
+
+          .orbit-radius
+            $pw: nth($planet, 3)
+            display: inline-block
+            width: calc(100% + #{$z*$pw*1px} + 2px)
+            left: ($z*($pw/2) + 1)*-1px
+            animation-duration: nth($planet, 4)/365*60s
+
+            .planet
+              // width: $z*$pw*1px
+              // height: $z*$pw*1px
+              width: $z*0.000085*100px
+              height: $z*0.000085*100px
+              background: unquote(nth($planet, 5))

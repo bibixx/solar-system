@@ -1,3 +1,16 @@
+br.clear {
+  clear: both;
+}
+
+@keyframes rotate {
+  0% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
 body {
   font-family: "Helvetica Neue";
 }
@@ -82,12 +95,15 @@ body {
 
 .content div.orbit .orbit-radius {
   display: inline-block;
-  width: calc(100% + 10px);
+  width: calc(100% + 4px + 2px);
   height: auto;
   position: absolute;
   top: 50%;
   left: -3px;
   transform: translateY(-50%);
+  animation: rotate 8s infinite;
+  animation-timing-function: linear;
+  transition: all .2s ease-in-out;
 }
 
 .content div.orbit .orbit-radius .planet {
@@ -96,19 +112,869 @@ body {
   height: 4px;
   border-radius: 50%;
   background: green;
+  transition: all .2s ease-in-out;
 }
 
-input:checked[name=zoom]#x05 ~ .content div.orbit {
+input:checked[name=zoom]#x025 ~ .content div.orbit#mercury {
+  width: 10px;
+  height: 10px;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#mercury .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 0.5px + 2px);
+  left: -1.25px;
+  animation-duration: 9.53425s;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#mercury .orbit-radius .planet {
+  width: 0.00213px;
+  height: 0.00213px;
+  background: orange;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#mercury {
+  width: 20px;
+  height: 20px;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#mercury .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 1px + 2px);
+  left: -1.5px;
+  animation-duration: 9.53425s;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#mercury .orbit-radius .planet {
+  width: 0.00425px;
+  height: 0.00425px;
+  background: orange;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#mercury {
+  width: 40px;
+  height: 40px;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#mercury .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 2px + 2px);
+  left: -2px;
+  animation-duration: 9.53425s;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#mercury .orbit-radius .planet {
+  width: 0.0085px;
+  height: 0.0085px;
+  background: orange;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#mercury {
+  width: 160px;
+  height: 160px;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#mercury .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 8px + 2px);
+  left: -5px;
+  animation-duration: 9.53425s;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#mercury .orbit-radius .planet {
+  width: 0.034px;
+  height: 0.034px;
+  background: orange;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#mercury {
+  width: 400px;
+  height: 400px;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#mercury .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 20px + 2px);
+  left: -11px;
+  animation-duration: 9.53425s;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#mercury .orbit-radius .planet {
+  width: 0.085px;
+  height: 0.085px;
+  background: orange;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#mercury {
+  width: 4000px;
+  height: 4000px;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#mercury .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 200px + 2px);
+  left: -101px;
+  animation-duration: 9.53425s;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#mercury .orbit-radius .planet {
+  width: 0.85px;
+  height: 0.85px;
+  background: orange;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#venus {
+  width: 17.5px;
+  height: 17.5px;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#venus .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 0.75px + 2px);
+  left: -1.375px;
+  animation-duration: 39.94521s;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#venus .orbit-radius .planet {
+  width: 0.00213px;
+  height: 0.00213px;
+  background: orange;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#venus {
+  width: 35px;
+  height: 35px;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#venus .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 1.5px + 2px);
+  left: -1.75px;
+  animation-duration: 39.94521s;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#venus .orbit-radius .planet {
+  width: 0.00425px;
+  height: 0.00425px;
+  background: orange;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#venus {
+  width: 70px;
+  height: 70px;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#venus .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 3px + 2px);
+  left: -2.5px;
+  animation-duration: 39.94521s;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#venus .orbit-radius .planet {
+  width: 0.0085px;
+  height: 0.0085px;
+  background: orange;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#venus {
+  width: 280px;
+  height: 280px;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#venus .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 12px + 2px);
+  left: -7px;
+  animation-duration: 39.94521s;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#venus .orbit-radius .planet {
+  width: 0.034px;
+  height: 0.034px;
+  background: orange;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#venus {
+  width: 700px;
+  height: 700px;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#venus .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 30px + 2px);
+  left: -16px;
+  animation-duration: 39.94521s;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#venus .orbit-radius .planet {
+  width: 0.085px;
+  height: 0.085px;
+  background: orange;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#venus {
+  width: 7000px;
+  height: 7000px;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#venus .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 300px + 2px);
+  left: -151px;
+  animation-duration: 39.94521s;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#venus .orbit-radius .planet {
+  width: 0.85px;
+  height: 0.85px;
+  background: orange;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#earth {
+  width: 25px;
+  height: 25px;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#earth .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 1px + 2px);
+  left: -1.5px;
+  animation-duration: 60s;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#earth .orbit-radius .planet {
+  width: 0.00213px;
+  height: 0.00213px;
+  background: green;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#earth {
   width: 50px;
   height: 50px;
 }
 
-input:checked[name=zoom]#x1 ~ .content div.orbit {
+input:checked[name=zoom]#x05 ~ .content div.orbit#earth .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 2px + 2px);
+  left: -2px;
+  animation-duration: 60s;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#earth .orbit-radius .planet {
+  width: 0.00425px;
+  height: 0.00425px;
+  background: green;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#earth {
   width: 100px;
   height: 100px;
 }
 
-input:checked[name=zoom]#x2 ~ .content div.orbit {
-  width: 200px;
-  height: 200px;
+input:checked[name=zoom]#x1 ~ .content div.orbit#earth .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 4px + 2px);
+  left: -3px;
+  animation-duration: 60s;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#earth .orbit-radius .planet {
+  width: 0.0085px;
+  height: 0.0085px;
+  background: green;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#earth {
+  width: 400px;
+  height: 400px;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#earth .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 16px + 2px);
+  left: -9px;
+  animation-duration: 60s;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#earth .orbit-radius .planet {
+  width: 0.034px;
+  height: 0.034px;
+  background: green;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#earth {
+  width: 1000px;
+  height: 1000px;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#earth .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 40px + 2px);
+  left: -21px;
+  animation-duration: 60s;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#earth .orbit-radius .planet {
+  width: 0.085px;
+  height: 0.085px;
+  background: green;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#earth {
+  width: 10000px;
+  height: 10000px;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#earth .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 400px + 2px);
+  left: -201px;
+  animation-duration: 60s;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#earth .orbit-radius .planet {
+  width: 0.85px;
+  height: 0.85px;
+  background: green;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#mars {
+  width: 37.5px;
+  height: 37.5px;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#mars .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 0.75px + 2px);
+  left: -1.375px;
+  animation-duration: 112.76712s;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#mars .orbit-radius .planet {
+  width: 0.00213px;
+  height: 0.00213px;
+  background: red;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#mars {
+  width: 75px;
+  height: 75px;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#mars .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 1.5px + 2px);
+  left: -1.75px;
+  animation-duration: 112.76712s;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#mars .orbit-radius .planet {
+  width: 0.00425px;
+  height: 0.00425px;
+  background: red;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#mars {
+  width: 150px;
+  height: 150px;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#mars .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 3px + 2px);
+  left: -2.5px;
+  animation-duration: 112.76712s;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#mars .orbit-radius .planet {
+  width: 0.0085px;
+  height: 0.0085px;
+  background: red;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#mars {
+  width: 600px;
+  height: 600px;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#mars .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 12px + 2px);
+  left: -7px;
+  animation-duration: 112.76712s;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#mars .orbit-radius .planet {
+  width: 0.034px;
+  height: 0.034px;
+  background: red;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#mars {
+  width: 1500px;
+  height: 1500px;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#mars .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 30px + 2px);
+  left: -16px;
+  animation-duration: 112.76712s;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#mars .orbit-radius .planet {
+  width: 0.085px;
+  height: 0.085px;
+  background: red;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#mars {
+  width: 15000px;
+  height: 15000px;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#mars .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 300px + 2px);
+  left: -151px;
+  animation-duration: 112.76712s;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#mars .orbit-radius .planet {
+  width: 0.85px;
+  height: 0.85px;
+  background: red;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#jupiter {
+  width: 125px;
+  height: 125px;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#jupiter .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 1px + 2px);
+  left: -1.5px;
+  animation-duration: 712.10959s;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#jupiter .orbit-radius .planet {
+  width: 0.00213px;
+  height: 0.00213px;
+  background: orange;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#jupiter {
+  width: 250px;
+  height: 250px;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#jupiter .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 2px + 2px);
+  left: -2px;
+  animation-duration: 712.10959s;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#jupiter .orbit-radius .planet {
+  width: 0.00425px;
+  height: 0.00425px;
+  background: orange;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#jupiter {
+  width: 500px;
+  height: 500px;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#jupiter .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 4px + 2px);
+  left: -3px;
+  animation-duration: 712.10959s;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#jupiter .orbit-radius .planet {
+  width: 0.0085px;
+  height: 0.0085px;
+  background: orange;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#jupiter {
+  width: 2000px;
+  height: 2000px;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#jupiter .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 16px + 2px);
+  left: -9px;
+  animation-duration: 712.10959s;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#jupiter .orbit-radius .planet {
+  width: 0.034px;
+  height: 0.034px;
+  background: orange;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#jupiter {
+  width: 5000px;
+  height: 5000px;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#jupiter .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 40px + 2px);
+  left: -21px;
+  animation-duration: 712.10959s;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#jupiter .orbit-radius .planet {
+  width: 0.085px;
+  height: 0.085px;
+  background: orange;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#jupiter {
+  width: 50000px;
+  height: 50000px;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#jupiter .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 400px + 2px);
+  left: -201px;
+  animation-duration: 712.10959s;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#jupiter .orbit-radius .planet {
+  width: 0.85px;
+  height: 0.85px;
+  background: orange;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#saturn {
+  width: 225px;
+  height: 225px;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#saturn .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 1px + 2px);
+  left: -1.5px;
+  animation-duration: 1768.60274s;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#saturn .orbit-radius .planet {
+  width: 0.00213px;
+  height: 0.00213px;
+  background: orange;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#saturn {
+  width: 450px;
+  height: 450px;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#saturn .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 2px + 2px);
+  left: -2px;
+  animation-duration: 1768.60274s;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#saturn .orbit-radius .planet {
+  width: 0.00425px;
+  height: 0.00425px;
+  background: orange;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#saturn {
+  width: 900px;
+  height: 900px;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#saturn .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 4px + 2px);
+  left: -3px;
+  animation-duration: 1768.60274s;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#saturn .orbit-radius .planet {
+  width: 0.0085px;
+  height: 0.0085px;
+  background: orange;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#saturn {
+  width: 3600px;
+  height: 3600px;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#saturn .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 16px + 2px);
+  left: -9px;
+  animation-duration: 1768.60274s;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#saturn .orbit-radius .planet {
+  width: 0.034px;
+  height: 0.034px;
+  background: orange;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#saturn {
+  width: 9000px;
+  height: 9000px;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#saturn .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 40px + 2px);
+  left: -21px;
+  animation-duration: 1768.60274s;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#saturn .orbit-radius .planet {
+  width: 0.085px;
+  height: 0.085px;
+  background: orange;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#saturn {
+  width: 90000px;
+  height: 90000px;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#saturn .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 400px + 2px);
+  left: -201px;
+  animation-duration: 1768.60274s;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#saturn .orbit-radius .planet {
+  width: 0.85px;
+  height: 0.85px;
+  background: orange;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#uranus {
+  width: 475px;
+  height: 475px;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#uranus .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 1px + 2px);
+  left: -1.5px;
+  animation-duration: 5044.60274s;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#uranus .orbit-radius .planet {
+  width: 0.00213px;
+  height: 0.00213px;
+  background: #88A4AE;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#uranus {
+  width: 950px;
+  height: 950px;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#uranus .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 2px + 2px);
+  left: -2px;
+  animation-duration: 5044.60274s;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#uranus .orbit-radius .planet {
+  width: 0.00425px;
+  height: 0.00425px;
+  background: #88A4AE;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#uranus {
+  width: 1900px;
+  height: 1900px;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#uranus .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 4px + 2px);
+  left: -3px;
+  animation-duration: 5044.60274s;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#uranus .orbit-radius .planet {
+  width: 0.0085px;
+  height: 0.0085px;
+  background: #88A4AE;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#uranus {
+  width: 7600px;
+  height: 7600px;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#uranus .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 16px + 2px);
+  left: -9px;
+  animation-duration: 5044.60274s;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#uranus .orbit-radius .planet {
+  width: 0.034px;
+  height: 0.034px;
+  background: #88A4AE;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#uranus {
+  width: 19000px;
+  height: 19000px;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#uranus .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 40px + 2px);
+  left: -21px;
+  animation-duration: 5044.60274s;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#uranus .orbit-radius .planet {
+  width: 0.085px;
+  height: 0.085px;
+  background: #88A4AE;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#uranus {
+  width: 190000px;
+  height: 190000px;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#uranus .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 400px + 2px);
+  left: -201px;
+  animation-duration: 5044.60274s;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#uranus .orbit-radius .planet {
+  width: 0.85px;
+  height: 0.85px;
+  background: #88A4AE;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#neptune {
+  width: 750px;
+  height: 750px;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#neptune .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 1px + 2px);
+  left: -1.5px;
+  animation-duration: 9899.67123s;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#neptune .orbit-radius .planet {
+  width: 0.00213px;
+  height: 0.00213px;
+  background: #519AF0;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#neptune {
+  width: 1500px;
+  height: 1500px;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#neptune .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 2px + 2px);
+  left: -2px;
+  animation-duration: 9899.67123s;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#neptune .orbit-radius .planet {
+  width: 0.00425px;
+  height: 0.00425px;
+  background: #519AF0;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#neptune {
+  width: 3000px;
+  height: 3000px;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#neptune .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 4px + 2px);
+  left: -3px;
+  animation-duration: 9899.67123s;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#neptune .orbit-radius .planet {
+  width: 0.0085px;
+  height: 0.0085px;
+  background: #519AF0;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#neptune {
+  width: 12000px;
+  height: 12000px;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#neptune .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 16px + 2px);
+  left: -9px;
+  animation-duration: 9899.67123s;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#neptune .orbit-radius .planet {
+  width: 0.034px;
+  height: 0.034px;
+  background: #519AF0;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#neptune {
+  width: 30000px;
+  height: 30000px;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#neptune .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 40px + 2px);
+  left: -21px;
+  animation-duration: 9899.67123s;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#neptune .orbit-radius .planet {
+  width: 0.085px;
+  height: 0.085px;
+  background: #519AF0;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#neptune {
+  width: 300000px;
+  height: 300000px;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#neptune .orbit-radius {
+  display: inline-block;
+  width: calc(100% + 400px + 2px);
+  left: -201px;
+  animation-duration: 9899.67123s;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#neptune .orbit-radius .planet {
+  width: 0.85px;
+  height: 0.85px;
+  background: #519AF0;
 }
