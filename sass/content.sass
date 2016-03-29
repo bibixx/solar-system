@@ -46,7 +46,7 @@
           font-size: 16px
           margin: 0
           &::after
-            content: "Earth /ˈɜːrθ/ (otherwise known as The World, in Greek: Γαῖα Gaia, or in Latin: Terra) is the third planet from the Sun, the densest planet in the Solar System, the largest of the Solar System's four terrestrial planets, and the only astronomical object known to harbor life."
+            content: ""
 
       .planet
         display: block
@@ -91,6 +91,8 @@ input:checked
           width: $z*$earth-size*30*109px
           height: $z*$earth-size*30*109px
 
+  $orbit-time: nth(nth($planets, 8), 4)/365*60
+  $delay: -+random( round($orbit-time) )+s
 
   @for $i from 0 to length($planets)
     $planet: nth($planets, $i+1)
@@ -104,7 +106,7 @@ input:checked
           height: $z*nth($planet, 2)*$distance*2px
 
           $orbit-time: nth($planet, 4)/365*60
-          $delay: -+random( round($orbit-time) )+s
+
           .orbit-radius
             $pw: nth($planet, 3)*$earth-size
             font-size: $z*$pw*1px
