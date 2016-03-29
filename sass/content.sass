@@ -72,6 +72,7 @@ input:checked
     &[name=zoom]#x#{$i} ~ .content #sun
       width: $z*$earth-size*(109+3000)+px
       height: $z*$earth-size*(109+3000)+px
+      font-size: $z*$earth-size*109px
       z-index: 1
       +center(true)
 
@@ -83,6 +84,7 @@ input:checked
         background: url("../img/sun.png")
         background-size: 100% 100%
         border-radius: 50%
+        box-shadow: 0em 0em 5em 0em red
         +center(true)
         +transition
 
