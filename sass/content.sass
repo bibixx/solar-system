@@ -1,5 +1,4 @@
 .content
-  background: black
 
   div.orbit
     width: 100px
@@ -104,16 +103,20 @@ input:checked
           width: $z*nth($planet, 2)*$distance*2px
           height: $z*nth($planet, 2)*$distance*2px
 
+          $orbit-time: nth($planet, 4)/365*60
+          $delay: -+random( round($orbit-time) )+s
           .orbit-radius
             $pw: nth($planet, 3)*$earth-size
             font-size: $z*$pw*1px
             display: inline-block
             width: calc(100% + #{$z*$pw*1px} + 2px)
             left: ($z*($pw/2) + 1)*-1px
-            animation-duration: nth($planet, 4)/365*60s
+            animation-duration: $orbit-time+s
+            animation-delay: $delay
 
             #text
               animation-duration: nth($planet, 4)/365*60s
+              animation-delay: $delay
               p::after
                 content: "#{$des}"
 

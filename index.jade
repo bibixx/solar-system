@@ -3,10 +3,14 @@ head
   meta(charset="utf-8")
   title Solar System model
   link(rel="stylesheet", href="css/style.css", media="screen", charset="utf-8")
+  script(type="text/javascript", src="http://code.jquery.com/jquery-1.11.3.min.js")
+  link(rel="stylesheet", href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css")
+  script(type="text/javascript", src="http://code.jquery.com/ui/1.11.4/jquery-ui.js")
+  script(src="js/script.js", charset="utf-8")
 body
   div.nav
     h2 Zoom
-    - var zoomArr = [0.12, 0.25, 0.5, 1, 4, 10, 100]
+    - var zoomArr = [0.12, 0.25, 0.5, 1, 4, 10, 20]
     - var def = 4
     - function to2period(a){
     -  var m = String(a*100)
@@ -27,6 +31,7 @@ body
     h2 Time (1 min = 1 earth year)    
     
     div.content
+      div#stars
       div#sun
       each val in ['neptune', 'uranus', 'saturn', 'jupiter', 'mars', 'earth', 'venus', 'mercury']
         div.orbit(id="#{val}")

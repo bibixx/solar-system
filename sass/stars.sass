@@ -1,0 +1,10 @@
+#stars
+  height: 1px
+  width: 1px
+  $star-color: "rgba(255,255,255,"+(random(50)+50)/100+")"
+  $stars: "235px 54px "+$star-color
+  @for $i from 0 to 1000
+    $star-color: "rgba(255,255,255,"+(random(30)+10)/100+")"
+    $stars: unquote($stars)+", "+random(2000)+"px "+random(2000)+"px "+$star-color
+
+  box-shadow: unquote($stars)

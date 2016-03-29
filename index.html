@@ -3,6 +3,10 @@
   <meta charset="utf-8">
   <title>Solar System model</title>
   <link rel="stylesheet" href="css/style.css" media="screen" charset="utf-8">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script type="text/javascript" src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="js/script.js" charset="utf-8"></script>
 </head>
 <body>
   <div class="nav">
@@ -19,10 +23,11 @@
     <label for="x4">x4.00</label>
     <input type="radio" name="zoom" id="x10">
     <label for="x10">x10.00</label>
-    <input type="radio" name="zoom" id="x100">
-    <label for="x100">x100.00</label><br class="clear">
+    <input type="radio" name="zoom" id="x20">
+    <label for="x20">x20.00</label><br class="clear">
     <h2>Time (1 min = 1 earth year)    </h2>
     <div class="content">
+      <div id="stars"></div>
       <div id="sun"></div>
       <div id="neptune" class="orbit">
         <div class="orbit-radius">
