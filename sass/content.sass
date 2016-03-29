@@ -32,8 +32,18 @@
         width: 4px
         height: 4px
         border-radius: 50%
-        background: green
+        background-size: 100% 100%
         +transition
+
+        &::before
+          content: ""
+          display: block
+          width: 100%
+          height: 100%
+          border-radius: 50%
+          box-shadow: inset 0.15em 0.15em 0.1em 0.01em rgba(0,0,0,0.75)
+          transform: rotate(-45deg)
+
 
 input:checked
   @each $z in $zoom-arr
@@ -69,7 +79,8 @@ input:checked
             .planet
               width: $z*$pw*1px
               height: $z*$pw*1px
-              background: unquote(nth($planet, 5))
+              background-image: url("../img/#{unquote(nth($planet, 1))}.png")
+              font-size: $z*$pw*1px
 
           &:hover
             .orbit-radius
@@ -80,3 +91,4 @@ input:checked
               .planet
                 width: $z*$pw*1px
                 height: $z*$pw*1px
+                font-size: $z*$pw*1px
