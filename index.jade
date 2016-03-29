@@ -7,7 +7,7 @@ body
   div.nav
     h2 Zoom
     - var zoomArr = [0.12, 0.25, 0.5, 1, 4, 10, 100]
-    - var def = 1
+    - var def = 4
     - function to2period(a){
     -  var m = String(a*100)
     -  if(a>=1){
@@ -18,7 +18,7 @@ body
     - }
     - each val in zoomArr
       - var x = String(val).replace(".","")
-      if val != 1
+      if val != def
         input(type="radio", name="zoom", id="x#{x}")
       else
         input(type="radio", name="zoom", id="x#{x}" checked)
@@ -31,5 +31,7 @@ body
       each val in ['neptune', 'uranus', 'saturn', 'jupiter', 'mars', 'earth', 'venus', 'mercury']
         div.orbit(id="#{val}")
           div.orbit-radius
+            div#text
+              p
             input(type="radio", name="planet" id="#{val}")
             label.planet(for="#{val}")

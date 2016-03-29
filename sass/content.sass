@@ -22,10 +22,32 @@
       position: absolute
       top: 50%
       left: -3px
-      transform: translateY(-50%) rotate(180deg)
+      transform: translateY(-50%)// rotate(180deg)
       animation: rotate 0s infinite
       animation-timing-function: linear
       +transition
+
+
+      #text
+        opacity: 0
+        position: absolute
+        width: 542px
+        bottom: 1em
+        left: 1em
+        padding: 10px
+        background: rgba(255,255,255,0.1)
+        color: rgba(255,255,255,0.7)
+        animation: rotate-banner 30s infinite
+        animation-timing-function: linear
+        transform-origin: bottom left
+        z-index: -1
+        +transition(".2s", "opacity")
+
+        p
+          font-size: 16px
+          margin: 0
+          &::after
+            content: "Earth /ˈɜːrθ/ (otherwise known as The World, in Greek: Γαῖα Gaia, or in Latin: Terra) is the third planet from the Sun, the densest planet in the Solar System, the largest of the Solar System's four terrestrial planets, and the only astronomical object known to harbor life."
 
       .planet
         display: block
@@ -44,23 +66,36 @@
           box-shadow: inset 0.15em 0.15em 0.1em 0.01em rgba(0,0,0,0.75)
           transform: rotate(-45deg)
 
-
 input:checked
   @each $z in $zoom-arr
     $i: str-replace( inspect($z), "\." )
 
     &[name=zoom]#x#{$i} ~ .content #sun
-      width: $z*$earth-size*109px
-      height: $z*$earth-size*109px
-      background: yellow
-      border-radius: 50%
+      width: $z*$earth-size*(109+3000)+px
+      height: $z*$earth-size*(109+3000)+px
+      z-index: 1
       +center(true)
-      +transition
+
+      &::before
+        content: ""
+        display: block
+        width: $z*$earth-size*109px
+        height: $z*$earth-size*109px
+        background: url("../img/sun.png")
+        background-size: 100% 100%
+        border-radius: 50%
+        +center(true)
+        +transition
+
+      &:hover
+        &::before
+          width: $z*$earth-size*30*109px
+          height: $z*$earth-size*30*109px
 
 
   @for $i from 0 to length($planets)
     $planet: nth($planets, $i+1)
-
+    $des: nth($desc, $i+1)
     @each $z in $zoom-arr
       $i: str-replace( inspect($z), "\." )
 
@@ -71,10 +106,16 @@ input:checked
 
           .orbit-radius
             $pw: nth($planet, 3)*$earth-size
+            font-size: $z*$pw*1px
             display: inline-block
             width: calc(100% + #{$z*$pw*1px} + 2px)
             left: ($z*($pw/2) + 1)*-1px
             animation-duration: nth($planet, 4)/365*60s
+
+            #text
+              animation-duration: nth($planet, 4)/365*60s
+              p::after
+                content: "#{$des}"
 
             .planet
               width: $z*$pw*1px
@@ -85,8 +126,12 @@ input:checked
           &:hover
             .orbit-radius
               $pw: round( nth($planet, 3)*$earth-size*1000 )
+              font-size: $z*$pw*1px
               width: calc(100% + #{$z*$pw*1px} + 2px)
               left: ($z*($pw/2) + 1)*-1px
+
+              #text
+                opacity: 1
 
               .planet
                 width: $z*$pw*1px

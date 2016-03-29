@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Open+Sans&subset=latin,latin-ext);
 body {
   font-family: "Helvetica Neue", "Open Sans";
@@ -31,6 +32,60 @@ body {
   100% {
     -webkit-transform: translateY(-50%) rotate(360deg);
             transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+@-webkit-keyframes rotate-banner {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    bottom: 1em;
+    left: 1em;
+  }
+  25% {
+    bottom: 1em;
+    left: 0em;
+  }
+  50% {
+    bottom: 0em;
+    left: 0em;
+  }
+  75% {
+    bottom: 0em;
+    left: 1em;
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+    left: 1em;
+    bottom: 1em;
+  }
+}
+
+@keyframes rotate-banner {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    bottom: 1em;
+    left: 1em;
+  }
+  25% {
+    bottom: 1em;
+    left: 0em;
+  }
+  50% {
+    bottom: 0em;
+    left: 0em;
+  }
+  75% {
+    bottom: 0em;
+    left: 1em;
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+    left: 1em;
+    bottom: 1em;
   }
 }
 
@@ -121,14 +176,43 @@ body {
   position: absolute;
   top: 50%;
   left: -3px;
-  -webkit-transform: translateY(-50%) rotate(180deg);
-      -ms-transform: translateY(-50%) rotate(180deg);
-          transform: translateY(-50%) rotate(180deg);
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
   -webkit-animation: rotate 0s infinite;
           animation: rotate 0s infinite;
   -webkit-animation-timing-function: linear;
           animation-timing-function: linear;
   transition: all .2s ease-in-out;
+}
+
+.content div.orbit .orbit-radius #text {
+  opacity: 0;
+  position: absolute;
+  width: 542px;
+  bottom: 1em;
+  left: 1em;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  -webkit-animation: rotate-banner 30s infinite;
+          animation: rotate-banner 30s infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-transform-origin: bottom left;
+      -ms-transform-origin: bottom left;
+          transform-origin: bottom left;
+  z-index: -1;
+  transition: opacity .2s ease-in-out;
+}
+
+.content div.orbit .orbit-radius #text p {
+  font-size: 16px;
+  margin: 0;
+}
+
+.content div.orbit .orbit-radius #text p::after {
+  content: "Earth /ˈɜːrθ/ (otherwise known as The World, in Greek: Γαῖα Gaia, or in Latin: Terra) is the third planet from the Sun, the densest planet in the Solar System, the largest of the Solar System's four terrestrial planets, and the only astronomical object known to harbor life.";
 }
 
 .content div.orbit .orbit-radius .planet {
@@ -153,9 +237,24 @@ body {
 }
 
 input:checked[name=zoom]#x012 ~ .content #sun {
+  width: 3.17715px;
+  height: 3.17715px;
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+input:checked[name=zoom]#x012 ~ .content #sun::before {
+  content: "";
+  display: block;
   width: 0.11139px;
   height: 0.11139px;
-  background: yellow;
+  background: url("../img/sun.png");
+  background-size: 100% 100%;
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -164,12 +263,32 @@ input:checked[name=zoom]#x012 ~ .content #sun {
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   transition: all .2s ease-in-out;
+}
+
+input:checked[name=zoom]#x012 ~ .content #sun:hover::before {
+  width: 3.34168px;
+  height: 3.34168px;
 }
 
 input:checked[name=zoom]#x025 ~ .content #sun {
+  width: 6.61906px;
+  height: 6.61906px;
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+input:checked[name=zoom]#x025 ~ .content #sun::before {
+  content: "";
+  display: block;
   width: 0.23206px;
   height: 0.23206px;
-  background: yellow;
+  background: url("../img/sun.png");
+  background-size: 100% 100%;
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -178,12 +297,32 @@ input:checked[name=zoom]#x025 ~ .content #sun {
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   transition: all .2s ease-in-out;
+}
+
+input:checked[name=zoom]#x025 ~ .content #sun:hover::before {
+  width: 6.96183px;
+  height: 6.96183px;
 }
 
 input:checked[name=zoom]#x05 ~ .content #sun {
+  width: 13.23812px;
+  height: 13.23812px;
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+input:checked[name=zoom]#x05 ~ .content #sun::before {
+  content: "";
+  display: block;
   width: 0.46412px;
   height: 0.46412px;
-  background: yellow;
+  background: url("../img/sun.png");
+  background-size: 100% 100%;
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -192,12 +331,32 @@ input:checked[name=zoom]#x05 ~ .content #sun {
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   transition: all .2s ease-in-out;
+}
+
+input:checked[name=zoom]#x05 ~ .content #sun:hover::before {
+  width: 13.92366px;
+  height: 13.92366px;
 }
 
 input:checked[name=zoom]#x1 ~ .content #sun {
+  width: 26.47624px;
+  height: 26.47624px;
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+input:checked[name=zoom]#x1 ~ .content #sun::before {
+  content: "";
+  display: block;
   width: 0.92824px;
   height: 0.92824px;
-  background: yellow;
+  background: url("../img/sun.png");
+  background-size: 100% 100%;
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -206,12 +365,32 @@ input:checked[name=zoom]#x1 ~ .content #sun {
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   transition: all .2s ease-in-out;
+}
+
+input:checked[name=zoom]#x1 ~ .content #sun:hover::before {
+  width: 27.84732px;
+  height: 27.84732px;
 }
 
 input:checked[name=zoom]#x4 ~ .content #sun {
+  width: 105.90498px;
+  height: 105.90498px;
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+input:checked[name=zoom]#x4 ~ .content #sun::before {
+  content: "";
+  display: block;
   width: 3.71298px;
   height: 3.71298px;
-  background: yellow;
+  background: url("../img/sun.png");
+  background-size: 100% 100%;
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -220,12 +399,32 @@ input:checked[name=zoom]#x4 ~ .content #sun {
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   transition: all .2s ease-in-out;
+}
+
+input:checked[name=zoom]#x4 ~ .content #sun:hover::before {
+  width: 111.38928px;
+  height: 111.38928px;
 }
 
 input:checked[name=zoom]#x5 ~ .content #sun {
+  width: 132.38122px;
+  height: 132.38122px;
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+input:checked[name=zoom]#x5 ~ .content #sun::before {
+  content: "";
+  display: block;
   width: 4.64122px;
   height: 4.64122px;
-  background: yellow;
+  background: url("../img/sun.png");
+  background-size: 100% 100%;
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -234,12 +433,32 @@ input:checked[name=zoom]#x5 ~ .content #sun {
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   transition: all .2s ease-in-out;
+}
+
+input:checked[name=zoom]#x5 ~ .content #sun:hover::before {
+  width: 139.2366px;
+  height: 139.2366px;
 }
 
 input:checked[name=zoom]#x10 ~ .content #sun {
+  width: 264.76244px;
+  height: 264.76244px;
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+input:checked[name=zoom]#x10 ~ .content #sun::before {
+  content: "";
+  display: block;
   width: 9.28244px;
   height: 9.28244px;
-  background: yellow;
+  background: url("../img/sun.png");
+  background-size: 100% 100%;
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -250,10 +469,30 @@ input:checked[name=zoom]#x10 ~ .content #sun {
   transition: all .2s ease-in-out;
 }
 
+input:checked[name=zoom]#x10 ~ .content #sun:hover::before {
+  width: 278.4732px;
+  height: 278.4732px;
+}
+
 input:checked[name=zoom]#x100 ~ .content #sun {
+  width: 2647.6244px;
+  height: 2647.6244px;
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+input:checked[name=zoom]#x100 ~ .content #sun::before {
+  content: "";
+  display: block;
   width: 92.8244px;
   height: 92.8244px;
-  background: yellow;
+  background: url("../img/sun.png");
+  background-size: 100% 100%;
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -262,6 +501,11 @@ input:checked[name=zoom]#x100 ~ .content #sun {
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   transition: all .2s ease-in-out;
+}
+
+input:checked[name=zoom]#x100 ~ .content #sun:hover::before {
+  width: 2784.732px;
+  height: 2784.732px;
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#mercury {
@@ -270,11 +514,21 @@ input:checked[name=zoom]#x012 ~ .content div.orbit#mercury {
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#mercury .orbit-radius {
+  font-size: 0.00039px;
   display: inline-block;
   width: calc(100% + 0.00039px + 2px);
   left: -1.00019px;
   -webkit-animation-duration: 9.53425s;
           animation-duration: 9.53425s;
+}
+
+input:checked[name=zoom]#x012 ~ .content div.orbit#mercury .orbit-radius #text {
+  -webkit-animation-duration: 9.53425s;
+          animation-duration: 9.53425s;
+}
+
+input:checked[name=zoom]#x012 ~ .content div.orbit#mercury .orbit-radius #text p::after {
+  content: "Mercury is the smallest planet in the Solar System and the one closest to the Sun, with an orbital period of about 88 Earth days, which is much faster than any other planet in the Solar System. Seen from Earth, it appears to move around its orbit in about 116 days. It has no known natural satellites. It is named after the Roman deity Mercury, the messenger to the gods.";
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#mercury .orbit-radius .planet {
@@ -285,8 +539,13 @@ input:checked[name=zoom]#x012 ~ .content div.orbit#mercury .orbit-radius .planet
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#mercury:hover .orbit-radius {
+  font-size: 0.36px;
   width: calc(100% + 0.36px + 2px);
   left: -1.18px;
+}
+
+input:checked[name=zoom]#x012 ~ .content div.orbit#mercury:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#mercury:hover .orbit-radius .planet {
@@ -301,11 +560,21 @@ input:checked[name=zoom]#x025 ~ .content div.orbit#mercury {
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#mercury .orbit-radius {
+  font-size: 0.00081px;
   display: inline-block;
   width: calc(100% + 0.00081px + 2px);
   left: -1.0004px;
   -webkit-animation-duration: 9.53425s;
           animation-duration: 9.53425s;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#mercury .orbit-radius #text {
+  -webkit-animation-duration: 9.53425s;
+          animation-duration: 9.53425s;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#mercury .orbit-radius #text p::after {
+  content: "Mercury is the smallest planet in the Solar System and the one closest to the Sun, with an orbital period of about 88 Earth days, which is much faster than any other planet in the Solar System. Seen from Earth, it appears to move around its orbit in about 116 days. It has no known natural satellites. It is named after the Roman deity Mercury, the messenger to the gods.";
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#mercury .orbit-radius .planet {
@@ -316,8 +585,13 @@ input:checked[name=zoom]#x025 ~ .content div.orbit#mercury .orbit-radius .planet
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#mercury:hover .orbit-radius {
+  font-size: 0.75px;
   width: calc(100% + 0.75px + 2px);
   left: -1.375px;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#mercury:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#mercury:hover .orbit-radius .planet {
@@ -332,11 +606,21 @@ input:checked[name=zoom]#x05 ~ .content div.orbit#mercury {
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#mercury .orbit-radius {
+  font-size: 0.00162px;
   display: inline-block;
   width: calc(100% + 0.00162px + 2px);
   left: -1.00081px;
   -webkit-animation-duration: 9.53425s;
           animation-duration: 9.53425s;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#mercury .orbit-radius #text {
+  -webkit-animation-duration: 9.53425s;
+          animation-duration: 9.53425s;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#mercury .orbit-radius #text p::after {
+  content: "Mercury is the smallest planet in the Solar System and the one closest to the Sun, with an orbital period of about 88 Earth days, which is much faster than any other planet in the Solar System. Seen from Earth, it appears to move around its orbit in about 116 days. It has no known natural satellites. It is named after the Roman deity Mercury, the messenger to the gods.";
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#mercury .orbit-radius .planet {
@@ -347,8 +631,13 @@ input:checked[name=zoom]#x05 ~ .content div.orbit#mercury .orbit-radius .planet 
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#mercury:hover .orbit-radius {
+  font-size: 1.5px;
   width: calc(100% + 1.5px + 2px);
   left: -1.75px;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#mercury:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#mercury:hover .orbit-radius .planet {
@@ -363,11 +652,21 @@ input:checked[name=zoom]#x1 ~ .content div.orbit#mercury {
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#mercury .orbit-radius {
+  font-size: 0.00324px;
   display: inline-block;
   width: calc(100% + 0.00324px + 2px);
   left: -1.00162px;
   -webkit-animation-duration: 9.53425s;
           animation-duration: 9.53425s;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#mercury .orbit-radius #text {
+  -webkit-animation-duration: 9.53425s;
+          animation-duration: 9.53425s;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#mercury .orbit-radius #text p::after {
+  content: "Mercury is the smallest planet in the Solar System and the one closest to the Sun, with an orbital period of about 88 Earth days, which is much faster than any other planet in the Solar System. Seen from Earth, it appears to move around its orbit in about 116 days. It has no known natural satellites. It is named after the Roman deity Mercury, the messenger to the gods.";
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#mercury .orbit-radius .planet {
@@ -378,8 +677,13 @@ input:checked[name=zoom]#x1 ~ .content div.orbit#mercury .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#mercury:hover .orbit-radius {
+  font-size: 3px;
   width: calc(100% + 3px + 2px);
   left: -2.5px;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#mercury:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#mercury:hover .orbit-radius .planet {
@@ -394,11 +698,21 @@ input:checked[name=zoom]#x4 ~ .content div.orbit#mercury {
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#mercury .orbit-radius {
+  font-size: 0.01294px;
   display: inline-block;
   width: calc(100% + 0.01294px + 2px);
   left: -1.00647px;
   -webkit-animation-duration: 9.53425s;
           animation-duration: 9.53425s;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#mercury .orbit-radius #text {
+  -webkit-animation-duration: 9.53425s;
+          animation-duration: 9.53425s;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#mercury .orbit-radius #text p::after {
+  content: "Mercury is the smallest planet in the Solar System and the one closest to the Sun, with an orbital period of about 88 Earth days, which is much faster than any other planet in the Solar System. Seen from Earth, it appears to move around its orbit in about 116 days. It has no known natural satellites. It is named after the Roman deity Mercury, the messenger to the gods.";
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#mercury .orbit-radius .planet {
@@ -409,8 +723,13 @@ input:checked[name=zoom]#x4 ~ .content div.orbit#mercury .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#mercury:hover .orbit-radius {
+  font-size: 12px;
   width: calc(100% + 12px + 2px);
   left: -7px;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#mercury:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#mercury:hover .orbit-radius .planet {
@@ -425,11 +744,21 @@ input:checked[name=zoom]#x5 ~ .content div.orbit#mercury {
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#mercury .orbit-radius {
+  font-size: 0.01618px;
   display: inline-block;
   width: calc(100% + 0.01618px + 2px);
   left: -1.00809px;
   -webkit-animation-duration: 9.53425s;
           animation-duration: 9.53425s;
+}
+
+input:checked[name=zoom]#x5 ~ .content div.orbit#mercury .orbit-radius #text {
+  -webkit-animation-duration: 9.53425s;
+          animation-duration: 9.53425s;
+}
+
+input:checked[name=zoom]#x5 ~ .content div.orbit#mercury .orbit-radius #text p::after {
+  content: "Mercury is the smallest planet in the Solar System and the one closest to the Sun, with an orbital period of about 88 Earth days, which is much faster than any other planet in the Solar System. Seen from Earth, it appears to move around its orbit in about 116 days. It has no known natural satellites. It is named after the Roman deity Mercury, the messenger to the gods.";
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#mercury .orbit-radius .planet {
@@ -440,8 +769,13 @@ input:checked[name=zoom]#x5 ~ .content div.orbit#mercury .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#mercury:hover .orbit-radius {
+  font-size: 15px;
   width: calc(100% + 15px + 2px);
   left: -8.5px;
+}
+
+input:checked[name=zoom]#x5 ~ .content div.orbit#mercury:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#mercury:hover .orbit-radius .planet {
@@ -456,11 +790,21 @@ input:checked[name=zoom]#x10 ~ .content div.orbit#mercury {
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#mercury .orbit-radius {
+  font-size: 0.03236px;
   display: inline-block;
   width: calc(100% + 0.03236px + 2px);
   left: -1.01618px;
   -webkit-animation-duration: 9.53425s;
           animation-duration: 9.53425s;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#mercury .orbit-radius #text {
+  -webkit-animation-duration: 9.53425s;
+          animation-duration: 9.53425s;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#mercury .orbit-radius #text p::after {
+  content: "Mercury is the smallest planet in the Solar System and the one closest to the Sun, with an orbital period of about 88 Earth days, which is much faster than any other planet in the Solar System. Seen from Earth, it appears to move around its orbit in about 116 days. It has no known natural satellites. It is named after the Roman deity Mercury, the messenger to the gods.";
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#mercury .orbit-radius .planet {
@@ -471,8 +815,13 @@ input:checked[name=zoom]#x10 ~ .content div.orbit#mercury .orbit-radius .planet 
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#mercury:hover .orbit-radius {
+  font-size: 30px;
   width: calc(100% + 30px + 2px);
   left: -16px;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#mercury:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#mercury:hover .orbit-radius .planet {
@@ -487,11 +836,21 @@ input:checked[name=zoom]#x100 ~ .content div.orbit#mercury {
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#mercury .orbit-radius {
+  font-size: 0.32361px;
   display: inline-block;
   width: calc(100% + 0.32361px + 2px);
   left: -1.1618px;
   -webkit-animation-duration: 9.53425s;
           animation-duration: 9.53425s;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#mercury .orbit-radius #text {
+  -webkit-animation-duration: 9.53425s;
+          animation-duration: 9.53425s;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#mercury .orbit-radius #text p::after {
+  content: "Mercury is the smallest planet in the Solar System and the one closest to the Sun, with an orbital period of about 88 Earth days, which is much faster than any other planet in the Solar System. Seen from Earth, it appears to move around its orbit in about 116 days. It has no known natural satellites. It is named after the Roman deity Mercury, the messenger to the gods.";
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#mercury .orbit-radius .planet {
@@ -502,8 +861,13 @@ input:checked[name=zoom]#x100 ~ .content div.orbit#mercury .orbit-radius .planet
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#mercury:hover .orbit-radius {
+  font-size: 300px;
   width: calc(100% + 300px + 2px);
   left: -151px;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#mercury:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#mercury:hover .orbit-radius .planet {
@@ -518,11 +882,21 @@ input:checked[name=zoom]#x012 ~ .content div.orbit#venus {
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#venus .orbit-radius {
+  font-size: 0.00096px;
   display: inline-block;
   width: calc(100% + 0.00096px + 2px);
   left: -1.00048px;
   -webkit-animation-duration: 39.94521s;
           animation-duration: 39.94521s;
+}
+
+input:checked[name=zoom]#x012 ~ .content div.orbit#venus .orbit-radius #text {
+  -webkit-animation-duration: 39.94521s;
+          animation-duration: 39.94521s;
+}
+
+input:checked[name=zoom]#x012 ~ .content div.orbit#venus .orbit-radius #text p::after {
+  content: "Venus is the second planet from the Sun, orbiting it every 224.7 Earth days. It has the longest rotation period (245 days) of any planet in the Solar System, and, unusually, rotates in the opposite direction to most other planets. It has no natural satellite. It is named after the Roman goddess of love and beauty.";
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#venus .orbit-radius .planet {
@@ -533,8 +907,13 @@ input:checked[name=zoom]#x012 ~ .content div.orbit#venus .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#venus:hover .orbit-radius {
+  font-size: 0.96px;
   width: calc(100% + 0.96px + 2px);
   left: -1.48px;
+}
+
+input:checked[name=zoom]#x012 ~ .content div.orbit#venus:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#venus:hover .orbit-radius .planet {
@@ -549,11 +928,21 @@ input:checked[name=zoom]#x025 ~ .content div.orbit#venus {
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#venus .orbit-radius {
+  font-size: 0.002px;
   display: inline-block;
   width: calc(100% + 0.002px + 2px);
   left: -1.001px;
   -webkit-animation-duration: 39.94521s;
           animation-duration: 39.94521s;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#venus .orbit-radius #text {
+  -webkit-animation-duration: 39.94521s;
+          animation-duration: 39.94521s;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#venus .orbit-radius #text p::after {
+  content: "Venus is the second planet from the Sun, orbiting it every 224.7 Earth days. It has the longest rotation period (245 days) of any planet in the Solar System, and, unusually, rotates in the opposite direction to most other planets. It has no natural satellite. It is named after the Roman goddess of love and beauty.";
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#venus .orbit-radius .planet {
@@ -564,8 +953,13 @@ input:checked[name=zoom]#x025 ~ .content div.orbit#venus .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#venus:hover .orbit-radius {
+  font-size: 2px;
   width: calc(100% + 2px + 2px);
   left: -2px;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#venus:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#venus:hover .orbit-radius .planet {
@@ -580,11 +974,21 @@ input:checked[name=zoom]#x05 ~ .content div.orbit#venus {
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#venus .orbit-radius {
+  font-size: 0.004px;
   display: inline-block;
   width: calc(100% + 0.004px + 2px);
   left: -1.002px;
   -webkit-animation-duration: 39.94521s;
           animation-duration: 39.94521s;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#venus .orbit-radius #text {
+  -webkit-animation-duration: 39.94521s;
+          animation-duration: 39.94521s;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#venus .orbit-radius #text p::after {
+  content: "Venus is the second planet from the Sun, orbiting it every 224.7 Earth days. It has the longest rotation period (245 days) of any planet in the Solar System, and, unusually, rotates in the opposite direction to most other planets. It has no natural satellite. It is named after the Roman goddess of love and beauty.";
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#venus .orbit-radius .planet {
@@ -595,8 +999,13 @@ input:checked[name=zoom]#x05 ~ .content div.orbit#venus .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#venus:hover .orbit-radius {
+  font-size: 4px;
   width: calc(100% + 4px + 2px);
   left: -3px;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#venus:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#venus:hover .orbit-radius .planet {
@@ -611,11 +1020,21 @@ input:checked[name=zoom]#x1 ~ .content div.orbit#venus {
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#venus .orbit-radius {
+  font-size: 0.00801px;
   display: inline-block;
   width: calc(100% + 0.00801px + 2px);
   left: -1.004px;
   -webkit-animation-duration: 39.94521s;
           animation-duration: 39.94521s;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#venus .orbit-radius #text {
+  -webkit-animation-duration: 39.94521s;
+          animation-duration: 39.94521s;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#venus .orbit-radius #text p::after {
+  content: "Venus is the second planet from the Sun, orbiting it every 224.7 Earth days. It has the longest rotation period (245 days) of any planet in the Solar System, and, unusually, rotates in the opposite direction to most other planets. It has no natural satellite. It is named after the Roman goddess of love and beauty.";
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#venus .orbit-radius .planet {
@@ -626,8 +1045,13 @@ input:checked[name=zoom]#x1 ~ .content div.orbit#venus .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#venus:hover .orbit-radius {
+  font-size: 8px;
   width: calc(100% + 8px + 2px);
   left: -5px;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#venus:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#venus:hover .orbit-radius .planet {
@@ -642,11 +1066,21 @@ input:checked[name=zoom]#x4 ~ .content div.orbit#venus {
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#venus .orbit-radius {
+  font-size: 0.03202px;
   display: inline-block;
   width: calc(100% + 0.03202px + 2px);
   left: -1.01601px;
   -webkit-animation-duration: 39.94521s;
           animation-duration: 39.94521s;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#venus .orbit-radius #text {
+  -webkit-animation-duration: 39.94521s;
+          animation-duration: 39.94521s;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#venus .orbit-radius #text p::after {
+  content: "Venus is the second planet from the Sun, orbiting it every 224.7 Earth days. It has the longest rotation period (245 days) of any planet in the Solar System, and, unusually, rotates in the opposite direction to most other planets. It has no natural satellite. It is named after the Roman goddess of love and beauty.";
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#venus .orbit-radius .planet {
@@ -657,8 +1091,13 @@ input:checked[name=zoom]#x4 ~ .content div.orbit#venus .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#venus:hover .orbit-radius {
+  font-size: 32px;
   width: calc(100% + 32px + 2px);
   left: -17px;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#venus:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#venus:hover .orbit-radius .planet {
@@ -673,11 +1112,21 @@ input:checked[name=zoom]#x5 ~ .content div.orbit#venus {
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#venus .orbit-radius {
+  font-size: 0.04003px;
   display: inline-block;
   width: calc(100% + 0.04003px + 2px);
   left: -1.02001px;
   -webkit-animation-duration: 39.94521s;
           animation-duration: 39.94521s;
+}
+
+input:checked[name=zoom]#x5 ~ .content div.orbit#venus .orbit-radius #text {
+  -webkit-animation-duration: 39.94521s;
+          animation-duration: 39.94521s;
+}
+
+input:checked[name=zoom]#x5 ~ .content div.orbit#venus .orbit-radius #text p::after {
+  content: "Venus is the second planet from the Sun, orbiting it every 224.7 Earth days. It has the longest rotation period (245 days) of any planet in the Solar System, and, unusually, rotates in the opposite direction to most other planets. It has no natural satellite. It is named after the Roman goddess of love and beauty.";
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#venus .orbit-radius .planet {
@@ -688,8 +1137,13 @@ input:checked[name=zoom]#x5 ~ .content div.orbit#venus .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#venus:hover .orbit-radius {
+  font-size: 40px;
   width: calc(100% + 40px + 2px);
   left: -21px;
+}
+
+input:checked[name=zoom]#x5 ~ .content div.orbit#venus:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#venus:hover .orbit-radius .planet {
@@ -704,11 +1158,21 @@ input:checked[name=zoom]#x10 ~ .content div.orbit#venus {
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#venus .orbit-radius {
+  font-size: 0.08005px;
   display: inline-block;
   width: calc(100% + 0.08005px + 2px);
   left: -1.04003px;
   -webkit-animation-duration: 39.94521s;
           animation-duration: 39.94521s;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#venus .orbit-radius #text {
+  -webkit-animation-duration: 39.94521s;
+          animation-duration: 39.94521s;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#venus .orbit-radius #text p::after {
+  content: "Venus is the second planet from the Sun, orbiting it every 224.7 Earth days. It has the longest rotation period (245 days) of any planet in the Solar System, and, unusually, rotates in the opposite direction to most other planets. It has no natural satellite. It is named after the Roman goddess of love and beauty.";
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#venus .orbit-radius .planet {
@@ -719,8 +1183,13 @@ input:checked[name=zoom]#x10 ~ .content div.orbit#venus .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#venus:hover .orbit-radius {
+  font-size: 80px;
   width: calc(100% + 80px + 2px);
   left: -41px;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#venus:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#venus:hover .orbit-radius .planet {
@@ -735,11 +1204,21 @@ input:checked[name=zoom]#x100 ~ .content div.orbit#venus {
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#venus .orbit-radius {
+  font-size: 0.8005px;
   display: inline-block;
   width: calc(100% + 0.8005px + 2px);
   left: -1.40025px;
   -webkit-animation-duration: 39.94521s;
           animation-duration: 39.94521s;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#venus .orbit-radius #text {
+  -webkit-animation-duration: 39.94521s;
+          animation-duration: 39.94521s;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#venus .orbit-radius #text p::after {
+  content: "Venus is the second planet from the Sun, orbiting it every 224.7 Earth days. It has the longest rotation period (245 days) of any planet in the Solar System, and, unusually, rotates in the opposite direction to most other planets. It has no natural satellite. It is named after the Roman goddess of love and beauty.";
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#venus .orbit-radius .planet {
@@ -750,8 +1229,13 @@ input:checked[name=zoom]#x100 ~ .content div.orbit#venus .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#venus:hover .orbit-radius {
+  font-size: 800px;
   width: calc(100% + 800px + 2px);
   left: -401px;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#venus:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#venus:hover .orbit-radius .planet {
@@ -766,11 +1250,21 @@ input:checked[name=zoom]#x012 ~ .content div.orbit#earth {
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#earth .orbit-radius {
+  font-size: 0.00102px;
   display: inline-block;
   width: calc(100% + 0.00102px + 2px);
   left: -1.00051px;
   -webkit-animation-duration: 60s;
           animation-duration: 60s;
+}
+
+input:checked[name=zoom]#x012 ~ .content div.orbit#earth .orbit-radius #text {
+  -webkit-animation-duration: 60s;
+          animation-duration: 60s;
+}
+
+input:checked[name=zoom]#x012 ~ .content div.orbit#earth .orbit-radius #text p::after {
+  content: "Earth /ˈɜːrθ/ (otherwise known as The World, in Greek: Γαῖα Gaia, or in Latin: Terra) is the third planet from the Sun, the densest planet in the Solar System, the largest of the Solar System's four terrestrial planets, and the only astronomical object known to harbor life.";
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#earth .orbit-radius .planet {
@@ -781,8 +1275,13 @@ input:checked[name=zoom]#x012 ~ .content div.orbit#earth .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#earth:hover .orbit-radius {
+  font-size: 1.08px;
   width: calc(100% + 1.08px + 2px);
   left: -1.54px;
+}
+
+input:checked[name=zoom]#x012 ~ .content div.orbit#earth:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#earth:hover .orbit-radius .planet {
@@ -797,11 +1296,21 @@ input:checked[name=zoom]#x025 ~ .content div.orbit#earth {
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#earth .orbit-radius {
+  font-size: 0.00213px;
   display: inline-block;
   width: calc(100% + 0.00213px + 2px);
   left: -1.00106px;
   -webkit-animation-duration: 60s;
           animation-duration: 60s;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#earth .orbit-radius #text {
+  -webkit-animation-duration: 60s;
+          animation-duration: 60s;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#earth .orbit-radius #text p::after {
+  content: "Earth /ˈɜːrθ/ (otherwise known as The World, in Greek: Γαῖα Gaia, or in Latin: Terra) is the third planet from the Sun, the densest planet in the Solar System, the largest of the Solar System's four terrestrial planets, and the only astronomical object known to harbor life.";
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#earth .orbit-radius .planet {
@@ -812,8 +1321,13 @@ input:checked[name=zoom]#x025 ~ .content div.orbit#earth .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#earth:hover .orbit-radius {
+  font-size: 2.25px;
   width: calc(100% + 2.25px + 2px);
   left: -2.125px;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#earth:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#earth:hover .orbit-radius .planet {
@@ -828,11 +1342,21 @@ input:checked[name=zoom]#x05 ~ .content div.orbit#earth {
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#earth .orbit-radius {
+  font-size: 0.00426px;
   display: inline-block;
   width: calc(100% + 0.00426px + 2px);
   left: -1.00213px;
   -webkit-animation-duration: 60s;
           animation-duration: 60s;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#earth .orbit-radius #text {
+  -webkit-animation-duration: 60s;
+          animation-duration: 60s;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#earth .orbit-radius #text p::after {
+  content: "Earth /ˈɜːrθ/ (otherwise known as The World, in Greek: Γαῖα Gaia, or in Latin: Terra) is the third planet from the Sun, the densest planet in the Solar System, the largest of the Solar System's four terrestrial planets, and the only astronomical object known to harbor life.";
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#earth .orbit-radius .planet {
@@ -843,8 +1367,13 @@ input:checked[name=zoom]#x05 ~ .content div.orbit#earth .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#earth:hover .orbit-radius {
+  font-size: 4.5px;
   width: calc(100% + 4.5px + 2px);
   left: -3.25px;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#earth:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#earth:hover .orbit-radius .planet {
@@ -859,11 +1388,21 @@ input:checked[name=zoom]#x1 ~ .content div.orbit#earth {
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#earth .orbit-radius {
+  font-size: 0.00852px;
   display: inline-block;
   width: calc(100% + 0.00852px + 2px);
   left: -1.00426px;
   -webkit-animation-duration: 60s;
           animation-duration: 60s;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#earth .orbit-radius #text {
+  -webkit-animation-duration: 60s;
+          animation-duration: 60s;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#earth .orbit-radius #text p::after {
+  content: "Earth /ˈɜːrθ/ (otherwise known as The World, in Greek: Γαῖα Gaia, or in Latin: Terra) is the third planet from the Sun, the densest planet in the Solar System, the largest of the Solar System's four terrestrial planets, and the only astronomical object known to harbor life.";
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#earth .orbit-radius .planet {
@@ -874,8 +1413,13 @@ input:checked[name=zoom]#x1 ~ .content div.orbit#earth .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#earth:hover .orbit-radius {
+  font-size: 9px;
   width: calc(100% + 9px + 2px);
   left: -5.5px;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#earth:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#earth:hover .orbit-radius .planet {
@@ -890,11 +1434,21 @@ input:checked[name=zoom]#x4 ~ .content div.orbit#earth {
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#earth .orbit-radius {
+  font-size: 0.03406px;
   display: inline-block;
   width: calc(100% + 0.03406px + 2px);
   left: -1.01703px;
   -webkit-animation-duration: 60s;
           animation-duration: 60s;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#earth .orbit-radius #text {
+  -webkit-animation-duration: 60s;
+          animation-duration: 60s;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#earth .orbit-radius #text p::after {
+  content: "Earth /ˈɜːrθ/ (otherwise known as The World, in Greek: Γαῖα Gaia, or in Latin: Terra) is the third planet from the Sun, the densest planet in the Solar System, the largest of the Solar System's four terrestrial planets, and the only astronomical object known to harbor life.";
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#earth .orbit-radius .planet {
@@ -905,8 +1459,13 @@ input:checked[name=zoom]#x4 ~ .content div.orbit#earth .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#earth:hover .orbit-radius {
+  font-size: 36px;
   width: calc(100% + 36px + 2px);
   left: -19px;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#earth:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#earth:hover .orbit-radius .planet {
@@ -921,11 +1480,21 @@ input:checked[name=zoom]#x5 ~ .content div.orbit#earth {
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#earth .orbit-radius {
+  font-size: 0.04258px;
   display: inline-block;
   width: calc(100% + 0.04258px + 2px);
   left: -1.02129px;
   -webkit-animation-duration: 60s;
           animation-duration: 60s;
+}
+
+input:checked[name=zoom]#x5 ~ .content div.orbit#earth .orbit-radius #text {
+  -webkit-animation-duration: 60s;
+          animation-duration: 60s;
+}
+
+input:checked[name=zoom]#x5 ~ .content div.orbit#earth .orbit-radius #text p::after {
+  content: "Earth /ˈɜːrθ/ (otherwise known as The World, in Greek: Γαῖα Gaia, or in Latin: Terra) is the third planet from the Sun, the densest planet in the Solar System, the largest of the Solar System's four terrestrial planets, and the only astronomical object known to harbor life.";
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#earth .orbit-radius .planet {
@@ -936,8 +1505,13 @@ input:checked[name=zoom]#x5 ~ .content div.orbit#earth .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#earth:hover .orbit-radius {
+  font-size: 45px;
   width: calc(100% + 45px + 2px);
   left: -23.5px;
+}
+
+input:checked[name=zoom]#x5 ~ .content div.orbit#earth:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#earth:hover .orbit-radius .planet {
@@ -952,11 +1526,21 @@ input:checked[name=zoom]#x10 ~ .content div.orbit#earth {
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#earth .orbit-radius {
+  font-size: 0.08516px;
   display: inline-block;
   width: calc(100% + 0.08516px + 2px);
   left: -1.04258px;
   -webkit-animation-duration: 60s;
           animation-duration: 60s;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#earth .orbit-radius #text {
+  -webkit-animation-duration: 60s;
+          animation-duration: 60s;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#earth .orbit-radius #text p::after {
+  content: "Earth /ˈɜːrθ/ (otherwise known as The World, in Greek: Γαῖα Gaia, or in Latin: Terra) is the third planet from the Sun, the densest planet in the Solar System, the largest of the Solar System's four terrestrial planets, and the only astronomical object known to harbor life.";
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#earth .orbit-radius .planet {
@@ -967,8 +1551,13 @@ input:checked[name=zoom]#x10 ~ .content div.orbit#earth .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#earth:hover .orbit-radius {
+  font-size: 90px;
   width: calc(100% + 90px + 2px);
   left: -46px;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#earth:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#earth:hover .orbit-radius .planet {
@@ -983,11 +1572,21 @@ input:checked[name=zoom]#x100 ~ .content div.orbit#earth {
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#earth .orbit-radius {
+  font-size: 0.8516px;
   display: inline-block;
   width: calc(100% + 0.8516px + 2px);
   left: -1.4258px;
   -webkit-animation-duration: 60s;
           animation-duration: 60s;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#earth .orbit-radius #text {
+  -webkit-animation-duration: 60s;
+          animation-duration: 60s;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#earth .orbit-radius #text p::after {
+  content: "Earth /ˈɜːrθ/ (otherwise known as The World, in Greek: Γαῖα Gaia, or in Latin: Terra) is the third planet from the Sun, the densest planet in the Solar System, the largest of the Solar System's four terrestrial planets, and the only astronomical object known to harbor life.";
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#earth .orbit-radius .planet {
@@ -998,8 +1597,13 @@ input:checked[name=zoom]#x100 ~ .content div.orbit#earth .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#earth:hover .orbit-radius {
+  font-size: 900px;
   width: calc(100% + 900px + 2px);
   left: -451px;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#earth:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#earth:hover .orbit-radius .planet {
@@ -1014,11 +1618,21 @@ input:checked[name=zoom]#x012 ~ .content div.orbit#mars {
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#mars .orbit-radius {
+  font-size: 0.00054px;
   display: inline-block;
   width: calc(100% + 0.00054px + 2px);
   left: -1.00027px;
   -webkit-animation-duration: 112.76712s;
           animation-duration: 112.76712s;
+}
+
+input:checked[name=zoom]#x012 ~ .content div.orbit#mars .orbit-radius #text {
+  -webkit-animation-duration: 112.76712s;
+          animation-duration: 112.76712s;
+}
+
+input:checked[name=zoom]#x012 ~ .content div.orbit#mars .orbit-radius #text p::after {
+  content: 'Mars is the fourth planet from the Sun and the second smallest planet in the Solar System, after Mercury. Named after the Roman god of war, it is often referred to as the "Red Planet" because the iron oxide prevalent on its surface gives it a reddish appearance.';
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#mars .orbit-radius .planet {
@@ -1029,8 +1643,13 @@ input:checked[name=zoom]#x012 ~ .content div.orbit#mars .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#mars:hover .orbit-radius {
+  font-size: 0.6px;
   width: calc(100% + 0.6px + 2px);
   left: -1.3px;
+}
+
+input:checked[name=zoom]#x012 ~ .content div.orbit#mars:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#mars:hover .orbit-radius .planet {
@@ -1045,11 +1664,21 @@ input:checked[name=zoom]#x025 ~ .content div.orbit#mars {
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#mars .orbit-radius {
+  font-size: 0.00113px;
   display: inline-block;
   width: calc(100% + 0.00113px + 2px);
   left: -1.00056px;
   -webkit-animation-duration: 112.76712s;
           animation-duration: 112.76712s;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#mars .orbit-radius #text {
+  -webkit-animation-duration: 112.76712s;
+          animation-duration: 112.76712s;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#mars .orbit-radius #text p::after {
+  content: 'Mars is the fourth planet from the Sun and the second smallest planet in the Solar System, after Mercury. Named after the Roman god of war, it is often referred to as the "Red Planet" because the iron oxide prevalent on its surface gives it a reddish appearance.';
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#mars .orbit-radius .planet {
@@ -1060,8 +1689,13 @@ input:checked[name=zoom]#x025 ~ .content div.orbit#mars .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#mars:hover .orbit-radius {
+  font-size: 1.25px;
   width: calc(100% + 1.25px + 2px);
   left: -1.625px;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#mars:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#mars:hover .orbit-radius .planet {
@@ -1076,11 +1710,21 @@ input:checked[name=zoom]#x05 ~ .content div.orbit#mars {
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#mars .orbit-radius {
+  font-size: 0.00226px;
   display: inline-block;
   width: calc(100% + 0.00226px + 2px);
   left: -1.00113px;
   -webkit-animation-duration: 112.76712s;
           animation-duration: 112.76712s;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#mars .orbit-radius #text {
+  -webkit-animation-duration: 112.76712s;
+          animation-duration: 112.76712s;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#mars .orbit-radius #text p::after {
+  content: 'Mars is the fourth planet from the Sun and the second smallest planet in the Solar System, after Mercury. Named after the Roman god of war, it is often referred to as the "Red Planet" because the iron oxide prevalent on its surface gives it a reddish appearance.';
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#mars .orbit-radius .planet {
@@ -1091,8 +1735,13 @@ input:checked[name=zoom]#x05 ~ .content div.orbit#mars .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#mars:hover .orbit-radius {
+  font-size: 2.5px;
   width: calc(100% + 2.5px + 2px);
   left: -2.25px;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#mars:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#mars:hover .orbit-radius .planet {
@@ -1107,11 +1756,21 @@ input:checked[name=zoom]#x1 ~ .content div.orbit#mars {
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#mars .orbit-radius {
+  font-size: 0.00451px;
   display: inline-block;
   width: calc(100% + 0.00451px + 2px);
   left: -1.00226px;
   -webkit-animation-duration: 112.76712s;
           animation-duration: 112.76712s;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#mars .orbit-radius #text {
+  -webkit-animation-duration: 112.76712s;
+          animation-duration: 112.76712s;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#mars .orbit-radius #text p::after {
+  content: 'Mars is the fourth planet from the Sun and the second smallest planet in the Solar System, after Mercury. Named after the Roman god of war, it is often referred to as the "Red Planet" because the iron oxide prevalent on its surface gives it a reddish appearance.';
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#mars .orbit-radius .planet {
@@ -1122,8 +1781,13 @@ input:checked[name=zoom]#x1 ~ .content div.orbit#mars .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#mars:hover .orbit-radius {
+  font-size: 5px;
   width: calc(100% + 5px + 2px);
   left: -3.5px;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#mars:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#mars:hover .orbit-radius .planet {
@@ -1138,11 +1802,21 @@ input:checked[name=zoom]#x4 ~ .content div.orbit#mars {
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#mars .orbit-radius {
+  font-size: 0.01805px;
   display: inline-block;
   width: calc(100% + 0.01805px + 2px);
   left: -1.00903px;
   -webkit-animation-duration: 112.76712s;
           animation-duration: 112.76712s;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#mars .orbit-radius #text {
+  -webkit-animation-duration: 112.76712s;
+          animation-duration: 112.76712s;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#mars .orbit-radius #text p::after {
+  content: 'Mars is the fourth planet from the Sun and the second smallest planet in the Solar System, after Mercury. Named after the Roman god of war, it is often referred to as the "Red Planet" because the iron oxide prevalent on its surface gives it a reddish appearance.';
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#mars .orbit-radius .planet {
@@ -1153,8 +1827,13 @@ input:checked[name=zoom]#x4 ~ .content div.orbit#mars .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#mars:hover .orbit-radius {
+  font-size: 20px;
   width: calc(100% + 20px + 2px);
   left: -11px;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#mars:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#mars:hover .orbit-radius .planet {
@@ -1169,11 +1848,21 @@ input:checked[name=zoom]#x5 ~ .content div.orbit#mars {
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#mars .orbit-radius {
+  font-size: 0.02257px;
   display: inline-block;
   width: calc(100% + 0.02257px + 2px);
   left: -1.01128px;
   -webkit-animation-duration: 112.76712s;
           animation-duration: 112.76712s;
+}
+
+input:checked[name=zoom]#x5 ~ .content div.orbit#mars .orbit-radius #text {
+  -webkit-animation-duration: 112.76712s;
+          animation-duration: 112.76712s;
+}
+
+input:checked[name=zoom]#x5 ~ .content div.orbit#mars .orbit-radius #text p::after {
+  content: 'Mars is the fourth planet from the Sun and the second smallest planet in the Solar System, after Mercury. Named after the Roman god of war, it is often referred to as the "Red Planet" because the iron oxide prevalent on its surface gives it a reddish appearance.';
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#mars .orbit-radius .planet {
@@ -1184,8 +1873,13 @@ input:checked[name=zoom]#x5 ~ .content div.orbit#mars .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#mars:hover .orbit-radius {
+  font-size: 25px;
   width: calc(100% + 25px + 2px);
   left: -13.5px;
+}
+
+input:checked[name=zoom]#x5 ~ .content div.orbit#mars:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#mars:hover .orbit-radius .planet {
@@ -1200,11 +1894,21 @@ input:checked[name=zoom]#x10 ~ .content div.orbit#mars {
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#mars .orbit-radius {
+  font-size: 0.04513px;
   display: inline-block;
   width: calc(100% + 0.04513px + 2px);
   left: -1.02257px;
   -webkit-animation-duration: 112.76712s;
           animation-duration: 112.76712s;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#mars .orbit-radius #text {
+  -webkit-animation-duration: 112.76712s;
+          animation-duration: 112.76712s;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#mars .orbit-radius #text p::after {
+  content: 'Mars is the fourth planet from the Sun and the second smallest planet in the Solar System, after Mercury. Named after the Roman god of war, it is often referred to as the "Red Planet" because the iron oxide prevalent on its surface gives it a reddish appearance.';
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#mars .orbit-radius .planet {
@@ -1215,8 +1919,13 @@ input:checked[name=zoom]#x10 ~ .content div.orbit#mars .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#mars:hover .orbit-radius {
+  font-size: 50px;
   width: calc(100% + 50px + 2px);
   left: -26px;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#mars:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#mars:hover .orbit-radius .planet {
@@ -1231,11 +1940,21 @@ input:checked[name=zoom]#x100 ~ .content div.orbit#mars {
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#mars .orbit-radius {
+  font-size: 0.45135px;
   display: inline-block;
   width: calc(100% + 0.45135px + 2px);
   left: -1.22567px;
   -webkit-animation-duration: 112.76712s;
           animation-duration: 112.76712s;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#mars .orbit-radius #text {
+  -webkit-animation-duration: 112.76712s;
+          animation-duration: 112.76712s;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#mars .orbit-radius #text p::after {
+  content: 'Mars is the fourth planet from the Sun and the second smallest planet in the Solar System, after Mercury. Named after the Roman god of war, it is often referred to as the "Red Planet" because the iron oxide prevalent on its surface gives it a reddish appearance.';
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#mars .orbit-radius .planet {
@@ -1246,8 +1965,13 @@ input:checked[name=zoom]#x100 ~ .content div.orbit#mars .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#mars:hover .orbit-radius {
+  font-size: 500px;
   width: calc(100% + 500px + 2px);
   left: -251px;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#mars:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#mars:hover .orbit-radius .planet {
@@ -1262,11 +1986,21 @@ input:checked[name=zoom]#x012 ~ .content div.orbit#jupiter {
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#jupiter .orbit-radius {
+  font-size: 0.01395px;
   display: inline-block;
   width: calc(100% + 0.01395px + 2px);
   left: -1.00697px;
   -webkit-animation-duration: 712.10959s;
           animation-duration: 712.10959s;
+}
+
+input:checked[name=zoom]#x012 ~ .content div.orbit#jupiter .orbit-radius #text {
+  -webkit-animation-duration: 712.10959s;
+          animation-duration: 712.10959s;
+}
+
+input:checked[name=zoom]#x012 ~ .content div.orbit#jupiter .orbit-radius #text p::after {
+  content: "Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a giant planet with a mass one-thousandth that of the Sun, but two and a half times that of all the other planets in the Solar System combined. Jupiter is a gas giant, along with Saturn.";
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#jupiter .orbit-radius .planet {
@@ -1277,8 +2011,13 @@ input:checked[name=zoom]#x012 ~ .content div.orbit#jupiter .orbit-radius .planet
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#jupiter:hover .orbit-radius {
+  font-size: 13.92px;
   width: calc(100% + 13.92px + 2px);
   left: -7.96px;
+}
+
+input:checked[name=zoom]#x012 ~ .content div.orbit#jupiter:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#jupiter:hover .orbit-radius .planet {
@@ -1293,11 +2032,21 @@ input:checked[name=zoom]#x025 ~ .content div.orbit#jupiter {
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#jupiter .orbit-radius {
+  font-size: 0.02906px;
   display: inline-block;
   width: calc(100% + 0.02906px + 2px);
   left: -1.01453px;
   -webkit-animation-duration: 712.10959s;
           animation-duration: 712.10959s;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#jupiter .orbit-radius #text {
+  -webkit-animation-duration: 712.10959s;
+          animation-duration: 712.10959s;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#jupiter .orbit-radius #text p::after {
+  content: "Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a giant planet with a mass one-thousandth that of the Sun, but two and a half times that of all the other planets in the Solar System combined. Jupiter is a gas giant, along with Saturn.";
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#jupiter .orbit-radius .planet {
@@ -1308,8 +2057,13 @@ input:checked[name=zoom]#x025 ~ .content div.orbit#jupiter .orbit-radius .planet
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#jupiter:hover .orbit-radius {
+  font-size: 29px;
   width: calc(100% + 29px + 2px);
   left: -15.5px;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#jupiter:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#jupiter:hover .orbit-radius .planet {
@@ -1324,11 +2078,21 @@ input:checked[name=zoom]#x05 ~ .content div.orbit#jupiter {
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#jupiter .orbit-radius {
+  font-size: 0.05812px;
   display: inline-block;
   width: calc(100% + 0.05812px + 2px);
   left: -1.02906px;
   -webkit-animation-duration: 712.10959s;
           animation-duration: 712.10959s;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#jupiter .orbit-radius #text {
+  -webkit-animation-duration: 712.10959s;
+          animation-duration: 712.10959s;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#jupiter .orbit-radius #text p::after {
+  content: "Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a giant planet with a mass one-thousandth that of the Sun, but two and a half times that of all the other planets in the Solar System combined. Jupiter is a gas giant, along with Saturn.";
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#jupiter .orbit-radius .planet {
@@ -1339,8 +2103,13 @@ input:checked[name=zoom]#x05 ~ .content div.orbit#jupiter .orbit-radius .planet 
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#jupiter:hover .orbit-radius {
+  font-size: 58px;
   width: calc(100% + 58px + 2px);
   left: -30px;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#jupiter:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#jupiter:hover .orbit-radius .planet {
@@ -1355,11 +2124,21 @@ input:checked[name=zoom]#x1 ~ .content div.orbit#jupiter {
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#jupiter .orbit-radius {
+  font-size: 0.11624px;
   display: inline-block;
   width: calc(100% + 0.11624px + 2px);
   left: -1.05812px;
   -webkit-animation-duration: 712.10959s;
           animation-duration: 712.10959s;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#jupiter .orbit-radius #text {
+  -webkit-animation-duration: 712.10959s;
+          animation-duration: 712.10959s;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#jupiter .orbit-radius #text p::after {
+  content: "Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a giant planet with a mass one-thousandth that of the Sun, but two and a half times that of all the other planets in the Solar System combined. Jupiter is a gas giant, along with Saturn.";
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#jupiter .orbit-radius .planet {
@@ -1370,8 +2149,13 @@ input:checked[name=zoom]#x1 ~ .content div.orbit#jupiter .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#jupiter:hover .orbit-radius {
+  font-size: 116px;
   width: calc(100% + 116px + 2px);
   left: -59px;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#jupiter:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#jupiter:hover .orbit-radius .planet {
@@ -1386,11 +2170,21 @@ input:checked[name=zoom]#x4 ~ .content div.orbit#jupiter {
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#jupiter .orbit-radius {
+  font-size: 0.46497px;
   display: inline-block;
   width: calc(100% + 0.46497px + 2px);
   left: -1.23249px;
   -webkit-animation-duration: 712.10959s;
           animation-duration: 712.10959s;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#jupiter .orbit-radius #text {
+  -webkit-animation-duration: 712.10959s;
+          animation-duration: 712.10959s;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#jupiter .orbit-radius #text p::after {
+  content: "Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a giant planet with a mass one-thousandth that of the Sun, but two and a half times that of all the other planets in the Solar System combined. Jupiter is a gas giant, along with Saturn.";
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#jupiter .orbit-radius .planet {
@@ -1401,8 +2195,13 @@ input:checked[name=zoom]#x4 ~ .content div.orbit#jupiter .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#jupiter:hover .orbit-radius {
+  font-size: 464px;
   width: calc(100% + 464px + 2px);
   left: -233px;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#jupiter:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#jupiter:hover .orbit-radius .planet {
@@ -1417,11 +2216,21 @@ input:checked[name=zoom]#x5 ~ .content div.orbit#jupiter {
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#jupiter .orbit-radius {
+  font-size: 0.58122px;
   display: inline-block;
   width: calc(100% + 0.58122px + 2px);
   left: -1.29061px;
   -webkit-animation-duration: 712.10959s;
           animation-duration: 712.10959s;
+}
+
+input:checked[name=zoom]#x5 ~ .content div.orbit#jupiter .orbit-radius #text {
+  -webkit-animation-duration: 712.10959s;
+          animation-duration: 712.10959s;
+}
+
+input:checked[name=zoom]#x5 ~ .content div.orbit#jupiter .orbit-radius #text p::after {
+  content: "Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a giant planet with a mass one-thousandth that of the Sun, but two and a half times that of all the other planets in the Solar System combined. Jupiter is a gas giant, along with Saturn.";
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#jupiter .orbit-radius .planet {
@@ -1432,8 +2241,13 @@ input:checked[name=zoom]#x5 ~ .content div.orbit#jupiter .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#jupiter:hover .orbit-radius {
+  font-size: 580px;
   width: calc(100% + 580px + 2px);
   left: -291px;
+}
+
+input:checked[name=zoom]#x5 ~ .content div.orbit#jupiter:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#jupiter:hover .orbit-radius .planet {
@@ -1448,11 +2262,21 @@ input:checked[name=zoom]#x10 ~ .content div.orbit#jupiter {
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#jupiter .orbit-radius {
+  font-size: 1.16243px;
   display: inline-block;
   width: calc(100% + 1.16243px + 2px);
   left: -1.58122px;
   -webkit-animation-duration: 712.10959s;
           animation-duration: 712.10959s;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#jupiter .orbit-radius #text {
+  -webkit-animation-duration: 712.10959s;
+          animation-duration: 712.10959s;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#jupiter .orbit-radius #text p::after {
+  content: "Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a giant planet with a mass one-thousandth that of the Sun, but two and a half times that of all the other planets in the Solar System combined. Jupiter is a gas giant, along with Saturn.";
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#jupiter .orbit-radius .planet {
@@ -1463,8 +2287,13 @@ input:checked[name=zoom]#x10 ~ .content div.orbit#jupiter .orbit-radius .planet 
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#jupiter:hover .orbit-radius {
+  font-size: 1160px;
   width: calc(100% + 1160px + 2px);
   left: -581px;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#jupiter:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#jupiter:hover .orbit-radius .planet {
@@ -1479,11 +2308,21 @@ input:checked[name=zoom]#x100 ~ .content div.orbit#jupiter {
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#jupiter .orbit-radius {
+  font-size: 11.62434px;
   display: inline-block;
   width: calc(100% + 11.62434px + 2px);
   left: -6.81217px;
   -webkit-animation-duration: 712.10959s;
           animation-duration: 712.10959s;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#jupiter .orbit-radius #text {
+  -webkit-animation-duration: 712.10959s;
+          animation-duration: 712.10959s;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#jupiter .orbit-radius #text p::after {
+  content: "Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a giant planet with a mass one-thousandth that of the Sun, but two and a half times that of all the other planets in the Solar System combined. Jupiter is a gas giant, along with Saturn.";
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#jupiter .orbit-radius .planet {
@@ -1494,8 +2333,13 @@ input:checked[name=zoom]#x100 ~ .content div.orbit#jupiter .orbit-radius .planet
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#jupiter:hover .orbit-radius {
+  font-size: 11600px;
   width: calc(100% + 11600px + 2px);
   left: -5801px;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#jupiter:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#jupiter:hover .orbit-radius .planet {
@@ -1510,11 +2354,21 @@ input:checked[name=zoom]#x012 ~ .content div.orbit#saturn {
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#saturn .orbit-radius {
+  font-size: 0.00102px;
   display: inline-block;
   width: calc(100% + 0.00102px + 2px);
   left: -1.00051px;
   -webkit-animation-duration: 1768.60274s;
           animation-duration: 1768.60274s;
+}
+
+input:checked[name=zoom]#x012 ~ .content div.orbit#saturn .orbit-radius #text {
+  -webkit-animation-duration: 1768.60274s;
+          animation-duration: 1768.60274s;
+}
+
+input:checked[name=zoom]#x012 ~ .content div.orbit#saturn .orbit-radius #text p::after {
+  content: "Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter. It is a gas giant with an average radius about nine times that of Earth. Although only one-eighth the average density of Earth, with its larger volume Saturn is just over 95 times more massive.";
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#saturn .orbit-radius .planet {
@@ -1525,8 +2379,13 @@ input:checked[name=zoom]#x012 ~ .content div.orbit#saturn .orbit-radius .planet 
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#saturn:hover .orbit-radius {
+  font-size: 1.08px;
   width: calc(100% + 1.08px + 2px);
   left: -1.54px;
+}
+
+input:checked[name=zoom]#x012 ~ .content div.orbit#saturn:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#saturn:hover .orbit-radius .planet {
@@ -1541,11 +2400,21 @@ input:checked[name=zoom]#x025 ~ .content div.orbit#saturn {
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#saturn .orbit-radius {
+  font-size: 0.00213px;
   display: inline-block;
   width: calc(100% + 0.00213px + 2px);
   left: -1.00106px;
   -webkit-animation-duration: 1768.60274s;
           animation-duration: 1768.60274s;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#saturn .orbit-radius #text {
+  -webkit-animation-duration: 1768.60274s;
+          animation-duration: 1768.60274s;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#saturn .orbit-radius #text p::after {
+  content: "Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter. It is a gas giant with an average radius about nine times that of Earth. Although only one-eighth the average density of Earth, with its larger volume Saturn is just over 95 times more massive.";
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#saturn .orbit-radius .planet {
@@ -1556,8 +2425,13 @@ input:checked[name=zoom]#x025 ~ .content div.orbit#saturn .orbit-radius .planet 
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#saturn:hover .orbit-radius {
+  font-size: 2.25px;
   width: calc(100% + 2.25px + 2px);
   left: -2.125px;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#saturn:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#saturn:hover .orbit-radius .planet {
@@ -1572,11 +2446,21 @@ input:checked[name=zoom]#x05 ~ .content div.orbit#saturn {
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#saturn .orbit-radius {
+  font-size: 0.00426px;
   display: inline-block;
   width: calc(100% + 0.00426px + 2px);
   left: -1.00213px;
   -webkit-animation-duration: 1768.60274s;
           animation-duration: 1768.60274s;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#saturn .orbit-radius #text {
+  -webkit-animation-duration: 1768.60274s;
+          animation-duration: 1768.60274s;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#saturn .orbit-radius #text p::after {
+  content: "Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter. It is a gas giant with an average radius about nine times that of Earth. Although only one-eighth the average density of Earth, with its larger volume Saturn is just over 95 times more massive.";
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#saturn .orbit-radius .planet {
@@ -1587,8 +2471,13 @@ input:checked[name=zoom]#x05 ~ .content div.orbit#saturn .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#saturn:hover .orbit-radius {
+  font-size: 4.5px;
   width: calc(100% + 4.5px + 2px);
   left: -3.25px;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#saturn:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#saturn:hover .orbit-radius .planet {
@@ -1603,11 +2492,21 @@ input:checked[name=zoom]#x1 ~ .content div.orbit#saturn {
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#saturn .orbit-radius {
+  font-size: 0.00852px;
   display: inline-block;
   width: calc(100% + 0.00852px + 2px);
   left: -1.00426px;
   -webkit-animation-duration: 1768.60274s;
           animation-duration: 1768.60274s;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#saturn .orbit-radius #text {
+  -webkit-animation-duration: 1768.60274s;
+          animation-duration: 1768.60274s;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#saturn .orbit-radius #text p::after {
+  content: "Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter. It is a gas giant with an average radius about nine times that of Earth. Although only one-eighth the average density of Earth, with its larger volume Saturn is just over 95 times more massive.";
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#saturn .orbit-radius .planet {
@@ -1618,8 +2517,13 @@ input:checked[name=zoom]#x1 ~ .content div.orbit#saturn .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#saturn:hover .orbit-radius {
+  font-size: 9px;
   width: calc(100% + 9px + 2px);
   left: -5.5px;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#saturn:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#saturn:hover .orbit-radius .planet {
@@ -1634,11 +2538,21 @@ input:checked[name=zoom]#x4 ~ .content div.orbit#saturn {
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#saturn .orbit-radius {
+  font-size: 0.03406px;
   display: inline-block;
   width: calc(100% + 0.03406px + 2px);
   left: -1.01703px;
   -webkit-animation-duration: 1768.60274s;
           animation-duration: 1768.60274s;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#saturn .orbit-radius #text {
+  -webkit-animation-duration: 1768.60274s;
+          animation-duration: 1768.60274s;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#saturn .orbit-radius #text p::after {
+  content: "Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter. It is a gas giant with an average radius about nine times that of Earth. Although only one-eighth the average density of Earth, with its larger volume Saturn is just over 95 times more massive.";
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#saturn .orbit-radius .planet {
@@ -1649,8 +2563,13 @@ input:checked[name=zoom]#x4 ~ .content div.orbit#saturn .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#saturn:hover .orbit-radius {
+  font-size: 36px;
   width: calc(100% + 36px + 2px);
   left: -19px;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#saturn:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#saturn:hover .orbit-radius .planet {
@@ -1665,11 +2584,21 @@ input:checked[name=zoom]#x5 ~ .content div.orbit#saturn {
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#saturn .orbit-radius {
+  font-size: 0.04258px;
   display: inline-block;
   width: calc(100% + 0.04258px + 2px);
   left: -1.02129px;
   -webkit-animation-duration: 1768.60274s;
           animation-duration: 1768.60274s;
+}
+
+input:checked[name=zoom]#x5 ~ .content div.orbit#saturn .orbit-radius #text {
+  -webkit-animation-duration: 1768.60274s;
+          animation-duration: 1768.60274s;
+}
+
+input:checked[name=zoom]#x5 ~ .content div.orbit#saturn .orbit-radius #text p::after {
+  content: "Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter. It is a gas giant with an average radius about nine times that of Earth. Although only one-eighth the average density of Earth, with its larger volume Saturn is just over 95 times more massive.";
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#saturn .orbit-radius .planet {
@@ -1680,8 +2609,13 @@ input:checked[name=zoom]#x5 ~ .content div.orbit#saturn .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#saturn:hover .orbit-radius {
+  font-size: 45px;
   width: calc(100% + 45px + 2px);
   left: -23.5px;
+}
+
+input:checked[name=zoom]#x5 ~ .content div.orbit#saturn:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#saturn:hover .orbit-radius .planet {
@@ -1696,11 +2630,21 @@ input:checked[name=zoom]#x10 ~ .content div.orbit#saturn {
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#saturn .orbit-radius {
+  font-size: 0.08516px;
   display: inline-block;
   width: calc(100% + 0.08516px + 2px);
   left: -1.04258px;
   -webkit-animation-duration: 1768.60274s;
           animation-duration: 1768.60274s;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#saturn .orbit-radius #text {
+  -webkit-animation-duration: 1768.60274s;
+          animation-duration: 1768.60274s;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#saturn .orbit-radius #text p::after {
+  content: "Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter. It is a gas giant with an average radius about nine times that of Earth. Although only one-eighth the average density of Earth, with its larger volume Saturn is just over 95 times more massive.";
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#saturn .orbit-radius .planet {
@@ -1711,8 +2655,13 @@ input:checked[name=zoom]#x10 ~ .content div.orbit#saturn .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#saturn:hover .orbit-radius {
+  font-size: 90px;
   width: calc(100% + 90px + 2px);
   left: -46px;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#saturn:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#saturn:hover .orbit-radius .planet {
@@ -1727,11 +2676,21 @@ input:checked[name=zoom]#x100 ~ .content div.orbit#saturn {
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#saturn .orbit-radius {
+  font-size: 0.8516px;
   display: inline-block;
   width: calc(100% + 0.8516px + 2px);
   left: -1.4258px;
   -webkit-animation-duration: 1768.60274s;
           animation-duration: 1768.60274s;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#saturn .orbit-radius #text {
+  -webkit-animation-duration: 1768.60274s;
+          animation-duration: 1768.60274s;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#saturn .orbit-radius #text p::after {
+  content: "Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter. It is a gas giant with an average radius about nine times that of Earth. Although only one-eighth the average density of Earth, with its larger volume Saturn is just over 95 times more massive.";
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#saturn .orbit-radius .planet {
@@ -1742,8 +2701,13 @@ input:checked[name=zoom]#x100 ~ .content div.orbit#saturn .orbit-radius .planet 
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#saturn:hover .orbit-radius {
+  font-size: 900px;
   width: calc(100% + 900px + 2px);
   left: -451px;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#saturn:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#saturn:hover .orbit-radius .planet {
@@ -1758,11 +2722,21 @@ input:checked[name=zoom]#x012 ~ .content div.orbit#uranus {
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#uranus .orbit-radius {
+  font-size: 0.00102px;
   display: inline-block;
   width: calc(100% + 0.00102px + 2px);
   left: -1.00051px;
   -webkit-animation-duration: 5044.60274s;
           animation-duration: 5044.60274s;
+}
+
+input:checked[name=zoom]#x012 ~ .content div.orbit#uranus .orbit-radius #text {
+  -webkit-animation-duration: 5044.60274s;
+          animation-duration: 5044.60274s;
+}
+
+input:checked[name=zoom]#x012 ~ .content div.orbit#uranus .orbit-radius #text p::after {
+  content: "Uranus is the seventh planet from the Sun. It has the third-largest planetary radius and fourth-largest planetary mass in the Solar System. Uranus is similar in composition to Neptune, and both have different bulk chemical composition from that of the larger gas giants Jupiter and Saturn.";
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#uranus .orbit-radius .planet {
@@ -1773,8 +2747,13 @@ input:checked[name=zoom]#x012 ~ .content div.orbit#uranus .orbit-radius .planet 
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#uranus:hover .orbit-radius {
+  font-size: 1.08px;
   width: calc(100% + 1.08px + 2px);
   left: -1.54px;
+}
+
+input:checked[name=zoom]#x012 ~ .content div.orbit#uranus:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#uranus:hover .orbit-radius .planet {
@@ -1789,11 +2768,21 @@ input:checked[name=zoom]#x025 ~ .content div.orbit#uranus {
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#uranus .orbit-radius {
+  font-size: 0.00213px;
   display: inline-block;
   width: calc(100% + 0.00213px + 2px);
   left: -1.00106px;
   -webkit-animation-duration: 5044.60274s;
           animation-duration: 5044.60274s;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#uranus .orbit-radius #text {
+  -webkit-animation-duration: 5044.60274s;
+          animation-duration: 5044.60274s;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#uranus .orbit-radius #text p::after {
+  content: "Uranus is the seventh planet from the Sun. It has the third-largest planetary radius and fourth-largest planetary mass in the Solar System. Uranus is similar in composition to Neptune, and both have different bulk chemical composition from that of the larger gas giants Jupiter and Saturn.";
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#uranus .orbit-radius .planet {
@@ -1804,8 +2793,13 @@ input:checked[name=zoom]#x025 ~ .content div.orbit#uranus .orbit-radius .planet 
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#uranus:hover .orbit-radius {
+  font-size: 2.25px;
   width: calc(100% + 2.25px + 2px);
   left: -2.125px;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#uranus:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#uranus:hover .orbit-radius .planet {
@@ -1820,11 +2814,21 @@ input:checked[name=zoom]#x05 ~ .content div.orbit#uranus {
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#uranus .orbit-radius {
+  font-size: 0.00426px;
   display: inline-block;
   width: calc(100% + 0.00426px + 2px);
   left: -1.00213px;
   -webkit-animation-duration: 5044.60274s;
           animation-duration: 5044.60274s;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#uranus .orbit-radius #text {
+  -webkit-animation-duration: 5044.60274s;
+          animation-duration: 5044.60274s;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#uranus .orbit-radius #text p::after {
+  content: "Uranus is the seventh planet from the Sun. It has the third-largest planetary radius and fourth-largest planetary mass in the Solar System. Uranus is similar in composition to Neptune, and both have different bulk chemical composition from that of the larger gas giants Jupiter and Saturn.";
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#uranus .orbit-radius .planet {
@@ -1835,8 +2839,13 @@ input:checked[name=zoom]#x05 ~ .content div.orbit#uranus .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#uranus:hover .orbit-radius {
+  font-size: 4.5px;
   width: calc(100% + 4.5px + 2px);
   left: -3.25px;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#uranus:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#uranus:hover .orbit-radius .planet {
@@ -1851,11 +2860,21 @@ input:checked[name=zoom]#x1 ~ .content div.orbit#uranus {
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#uranus .orbit-radius {
+  font-size: 0.00852px;
   display: inline-block;
   width: calc(100% + 0.00852px + 2px);
   left: -1.00426px;
   -webkit-animation-duration: 5044.60274s;
           animation-duration: 5044.60274s;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#uranus .orbit-radius #text {
+  -webkit-animation-duration: 5044.60274s;
+          animation-duration: 5044.60274s;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#uranus .orbit-radius #text p::after {
+  content: "Uranus is the seventh planet from the Sun. It has the third-largest planetary radius and fourth-largest planetary mass in the Solar System. Uranus is similar in composition to Neptune, and both have different bulk chemical composition from that of the larger gas giants Jupiter and Saturn.";
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#uranus .orbit-radius .planet {
@@ -1866,8 +2885,13 @@ input:checked[name=zoom]#x1 ~ .content div.orbit#uranus .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#uranus:hover .orbit-radius {
+  font-size: 9px;
   width: calc(100% + 9px + 2px);
   left: -5.5px;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#uranus:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#uranus:hover .orbit-radius .planet {
@@ -1882,11 +2906,21 @@ input:checked[name=zoom]#x4 ~ .content div.orbit#uranus {
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#uranus .orbit-radius {
+  font-size: 0.03406px;
   display: inline-block;
   width: calc(100% + 0.03406px + 2px);
   left: -1.01703px;
   -webkit-animation-duration: 5044.60274s;
           animation-duration: 5044.60274s;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#uranus .orbit-radius #text {
+  -webkit-animation-duration: 5044.60274s;
+          animation-duration: 5044.60274s;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#uranus .orbit-radius #text p::after {
+  content: "Uranus is the seventh planet from the Sun. It has the third-largest planetary radius and fourth-largest planetary mass in the Solar System. Uranus is similar in composition to Neptune, and both have different bulk chemical composition from that of the larger gas giants Jupiter and Saturn.";
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#uranus .orbit-radius .planet {
@@ -1897,8 +2931,13 @@ input:checked[name=zoom]#x4 ~ .content div.orbit#uranus .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#uranus:hover .orbit-radius {
+  font-size: 36px;
   width: calc(100% + 36px + 2px);
   left: -19px;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#uranus:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#uranus:hover .orbit-radius .planet {
@@ -1913,11 +2952,21 @@ input:checked[name=zoom]#x5 ~ .content div.orbit#uranus {
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#uranus .orbit-radius {
+  font-size: 0.04258px;
   display: inline-block;
   width: calc(100% + 0.04258px + 2px);
   left: -1.02129px;
   -webkit-animation-duration: 5044.60274s;
           animation-duration: 5044.60274s;
+}
+
+input:checked[name=zoom]#x5 ~ .content div.orbit#uranus .orbit-radius #text {
+  -webkit-animation-duration: 5044.60274s;
+          animation-duration: 5044.60274s;
+}
+
+input:checked[name=zoom]#x5 ~ .content div.orbit#uranus .orbit-radius #text p::after {
+  content: "Uranus is the seventh planet from the Sun. It has the third-largest planetary radius and fourth-largest planetary mass in the Solar System. Uranus is similar in composition to Neptune, and both have different bulk chemical composition from that of the larger gas giants Jupiter and Saturn.";
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#uranus .orbit-radius .planet {
@@ -1928,8 +2977,13 @@ input:checked[name=zoom]#x5 ~ .content div.orbit#uranus .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#uranus:hover .orbit-radius {
+  font-size: 45px;
   width: calc(100% + 45px + 2px);
   left: -23.5px;
+}
+
+input:checked[name=zoom]#x5 ~ .content div.orbit#uranus:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#uranus:hover .orbit-radius .planet {
@@ -1944,11 +2998,21 @@ input:checked[name=zoom]#x10 ~ .content div.orbit#uranus {
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#uranus .orbit-radius {
+  font-size: 0.08516px;
   display: inline-block;
   width: calc(100% + 0.08516px + 2px);
   left: -1.04258px;
   -webkit-animation-duration: 5044.60274s;
           animation-duration: 5044.60274s;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#uranus .orbit-radius #text {
+  -webkit-animation-duration: 5044.60274s;
+          animation-duration: 5044.60274s;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#uranus .orbit-radius #text p::after {
+  content: "Uranus is the seventh planet from the Sun. It has the third-largest planetary radius and fourth-largest planetary mass in the Solar System. Uranus is similar in composition to Neptune, and both have different bulk chemical composition from that of the larger gas giants Jupiter and Saturn.";
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#uranus .orbit-radius .planet {
@@ -1959,8 +3023,13 @@ input:checked[name=zoom]#x10 ~ .content div.orbit#uranus .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#uranus:hover .orbit-radius {
+  font-size: 90px;
   width: calc(100% + 90px + 2px);
   left: -46px;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#uranus:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#uranus:hover .orbit-radius .planet {
@@ -1975,11 +3044,21 @@ input:checked[name=zoom]#x100 ~ .content div.orbit#uranus {
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#uranus .orbit-radius {
+  font-size: 0.8516px;
   display: inline-block;
   width: calc(100% + 0.8516px + 2px);
   left: -1.4258px;
   -webkit-animation-duration: 5044.60274s;
           animation-duration: 5044.60274s;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#uranus .orbit-radius #text {
+  -webkit-animation-duration: 5044.60274s;
+          animation-duration: 5044.60274s;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#uranus .orbit-radius #text p::after {
+  content: "Uranus is the seventh planet from the Sun. It has the third-largest planetary radius and fourth-largest planetary mass in the Solar System. Uranus is similar in composition to Neptune, and both have different bulk chemical composition from that of the larger gas giants Jupiter and Saturn.";
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#uranus .orbit-radius .planet {
@@ -1990,8 +3069,13 @@ input:checked[name=zoom]#x100 ~ .content div.orbit#uranus .orbit-radius .planet 
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#uranus:hover .orbit-radius {
+  font-size: 900px;
   width: calc(100% + 900px + 2px);
   left: -451px;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#uranus:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#uranus:hover .orbit-radius .planet {
@@ -2006,11 +3090,21 @@ input:checked[name=zoom]#x012 ~ .content div.orbit#neptune {
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#neptune .orbit-radius {
+  font-size: 0.00102px;
   display: inline-block;
   width: calc(100% + 0.00102px + 2px);
   left: -1.00051px;
   -webkit-animation-duration: 9899.67123s;
           animation-duration: 9899.67123s;
+}
+
+input:checked[name=zoom]#x012 ~ .content div.orbit#neptune .orbit-radius #text {
+  -webkit-animation-duration: 9899.67123s;
+          animation-duration: 9899.67123s;
+}
+
+input:checked[name=zoom]#x012 ~ .content div.orbit#neptune .orbit-radius #text p::after {
+  content: "Neptune is the eighth and farthest known planet from the Sun in the Solar System. It is the fourth-largest planet by diameter and the third-largest by mass. Among the giant planets in the Solar System, Neptune is the most dense. Neptune is 17 times the mass of Earth and is slightly more massive than its near-twin Uranus, which is 15 times the mass of Earth and slightly larger than Neptune.";
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#neptune .orbit-radius .planet {
@@ -2021,8 +3115,13 @@ input:checked[name=zoom]#x012 ~ .content div.orbit#neptune .orbit-radius .planet
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#neptune:hover .orbit-radius {
+  font-size: 1.08px;
   width: calc(100% + 1.08px + 2px);
   left: -1.54px;
+}
+
+input:checked[name=zoom]#x012 ~ .content div.orbit#neptune:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x012 ~ .content div.orbit#neptune:hover .orbit-radius .planet {
@@ -2037,11 +3136,21 @@ input:checked[name=zoom]#x025 ~ .content div.orbit#neptune {
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#neptune .orbit-radius {
+  font-size: 0.00213px;
   display: inline-block;
   width: calc(100% + 0.00213px + 2px);
   left: -1.00106px;
   -webkit-animation-duration: 9899.67123s;
           animation-duration: 9899.67123s;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#neptune .orbit-radius #text {
+  -webkit-animation-duration: 9899.67123s;
+          animation-duration: 9899.67123s;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#neptune .orbit-radius #text p::after {
+  content: "Neptune is the eighth and farthest known planet from the Sun in the Solar System. It is the fourth-largest planet by diameter and the third-largest by mass. Among the giant planets in the Solar System, Neptune is the most dense. Neptune is 17 times the mass of Earth and is slightly more massive than its near-twin Uranus, which is 15 times the mass of Earth and slightly larger than Neptune.";
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#neptune .orbit-radius .planet {
@@ -2052,8 +3161,13 @@ input:checked[name=zoom]#x025 ~ .content div.orbit#neptune .orbit-radius .planet
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#neptune:hover .orbit-radius {
+  font-size: 2.25px;
   width: calc(100% + 2.25px + 2px);
   left: -2.125px;
+}
+
+input:checked[name=zoom]#x025 ~ .content div.orbit#neptune:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x025 ~ .content div.orbit#neptune:hover .orbit-radius .planet {
@@ -2068,11 +3182,21 @@ input:checked[name=zoom]#x05 ~ .content div.orbit#neptune {
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#neptune .orbit-radius {
+  font-size: 0.00426px;
   display: inline-block;
   width: calc(100% + 0.00426px + 2px);
   left: -1.00213px;
   -webkit-animation-duration: 9899.67123s;
           animation-duration: 9899.67123s;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#neptune .orbit-radius #text {
+  -webkit-animation-duration: 9899.67123s;
+          animation-duration: 9899.67123s;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#neptune .orbit-radius #text p::after {
+  content: "Neptune is the eighth and farthest known planet from the Sun in the Solar System. It is the fourth-largest planet by diameter and the third-largest by mass. Among the giant planets in the Solar System, Neptune is the most dense. Neptune is 17 times the mass of Earth and is slightly more massive than its near-twin Uranus, which is 15 times the mass of Earth and slightly larger than Neptune.";
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#neptune .orbit-radius .planet {
@@ -2083,8 +3207,13 @@ input:checked[name=zoom]#x05 ~ .content div.orbit#neptune .orbit-radius .planet 
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#neptune:hover .orbit-radius {
+  font-size: 4.5px;
   width: calc(100% + 4.5px + 2px);
   left: -3.25px;
+}
+
+input:checked[name=zoom]#x05 ~ .content div.orbit#neptune:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x05 ~ .content div.orbit#neptune:hover .orbit-radius .planet {
@@ -2099,11 +3228,21 @@ input:checked[name=zoom]#x1 ~ .content div.orbit#neptune {
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#neptune .orbit-radius {
+  font-size: 0.00852px;
   display: inline-block;
   width: calc(100% + 0.00852px + 2px);
   left: -1.00426px;
   -webkit-animation-duration: 9899.67123s;
           animation-duration: 9899.67123s;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#neptune .orbit-radius #text {
+  -webkit-animation-duration: 9899.67123s;
+          animation-duration: 9899.67123s;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#neptune .orbit-radius #text p::after {
+  content: "Neptune is the eighth and farthest known planet from the Sun in the Solar System. It is the fourth-largest planet by diameter and the third-largest by mass. Among the giant planets in the Solar System, Neptune is the most dense. Neptune is 17 times the mass of Earth and is slightly more massive than its near-twin Uranus, which is 15 times the mass of Earth and slightly larger than Neptune.";
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#neptune .orbit-radius .planet {
@@ -2114,8 +3253,13 @@ input:checked[name=zoom]#x1 ~ .content div.orbit#neptune .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#neptune:hover .orbit-radius {
+  font-size: 9px;
   width: calc(100% + 9px + 2px);
   left: -5.5px;
+}
+
+input:checked[name=zoom]#x1 ~ .content div.orbit#neptune:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x1 ~ .content div.orbit#neptune:hover .orbit-radius .planet {
@@ -2130,11 +3274,21 @@ input:checked[name=zoom]#x4 ~ .content div.orbit#neptune {
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#neptune .orbit-radius {
+  font-size: 0.03406px;
   display: inline-block;
   width: calc(100% + 0.03406px + 2px);
   left: -1.01703px;
   -webkit-animation-duration: 9899.67123s;
           animation-duration: 9899.67123s;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#neptune .orbit-radius #text {
+  -webkit-animation-duration: 9899.67123s;
+          animation-duration: 9899.67123s;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#neptune .orbit-radius #text p::after {
+  content: "Neptune is the eighth and farthest known planet from the Sun in the Solar System. It is the fourth-largest planet by diameter and the third-largest by mass. Among the giant planets in the Solar System, Neptune is the most dense. Neptune is 17 times the mass of Earth and is slightly more massive than its near-twin Uranus, which is 15 times the mass of Earth and slightly larger than Neptune.";
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#neptune .orbit-radius .planet {
@@ -2145,8 +3299,13 @@ input:checked[name=zoom]#x4 ~ .content div.orbit#neptune .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#neptune:hover .orbit-radius {
+  font-size: 36px;
   width: calc(100% + 36px + 2px);
   left: -19px;
+}
+
+input:checked[name=zoom]#x4 ~ .content div.orbit#neptune:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x4 ~ .content div.orbit#neptune:hover .orbit-radius .planet {
@@ -2161,11 +3320,21 @@ input:checked[name=zoom]#x5 ~ .content div.orbit#neptune {
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#neptune .orbit-radius {
+  font-size: 0.04258px;
   display: inline-block;
   width: calc(100% + 0.04258px + 2px);
   left: -1.02129px;
   -webkit-animation-duration: 9899.67123s;
           animation-duration: 9899.67123s;
+}
+
+input:checked[name=zoom]#x5 ~ .content div.orbit#neptune .orbit-radius #text {
+  -webkit-animation-duration: 9899.67123s;
+          animation-duration: 9899.67123s;
+}
+
+input:checked[name=zoom]#x5 ~ .content div.orbit#neptune .orbit-radius #text p::after {
+  content: "Neptune is the eighth and farthest known planet from the Sun in the Solar System. It is the fourth-largest planet by diameter and the third-largest by mass. Among the giant planets in the Solar System, Neptune is the most dense. Neptune is 17 times the mass of Earth and is slightly more massive than its near-twin Uranus, which is 15 times the mass of Earth and slightly larger than Neptune.";
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#neptune .orbit-radius .planet {
@@ -2176,8 +3345,13 @@ input:checked[name=zoom]#x5 ~ .content div.orbit#neptune .orbit-radius .planet {
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#neptune:hover .orbit-radius {
+  font-size: 45px;
   width: calc(100% + 45px + 2px);
   left: -23.5px;
+}
+
+input:checked[name=zoom]#x5 ~ .content div.orbit#neptune:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x5 ~ .content div.orbit#neptune:hover .orbit-radius .planet {
@@ -2192,11 +3366,21 @@ input:checked[name=zoom]#x10 ~ .content div.orbit#neptune {
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#neptune .orbit-radius {
+  font-size: 0.08516px;
   display: inline-block;
   width: calc(100% + 0.08516px + 2px);
   left: -1.04258px;
   -webkit-animation-duration: 9899.67123s;
           animation-duration: 9899.67123s;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#neptune .orbit-radius #text {
+  -webkit-animation-duration: 9899.67123s;
+          animation-duration: 9899.67123s;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#neptune .orbit-radius #text p::after {
+  content: "Neptune is the eighth and farthest known planet from the Sun in the Solar System. It is the fourth-largest planet by diameter and the third-largest by mass. Among the giant planets in the Solar System, Neptune is the most dense. Neptune is 17 times the mass of Earth and is slightly more massive than its near-twin Uranus, which is 15 times the mass of Earth and slightly larger than Neptune.";
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#neptune .orbit-radius .planet {
@@ -2207,8 +3391,13 @@ input:checked[name=zoom]#x10 ~ .content div.orbit#neptune .orbit-radius .planet 
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#neptune:hover .orbit-radius {
+  font-size: 90px;
   width: calc(100% + 90px + 2px);
   left: -46px;
+}
+
+input:checked[name=zoom]#x10 ~ .content div.orbit#neptune:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x10 ~ .content div.orbit#neptune:hover .orbit-radius .planet {
@@ -2223,11 +3412,21 @@ input:checked[name=zoom]#x100 ~ .content div.orbit#neptune {
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#neptune .orbit-radius {
+  font-size: 0.8516px;
   display: inline-block;
   width: calc(100% + 0.8516px + 2px);
   left: -1.4258px;
   -webkit-animation-duration: 9899.67123s;
           animation-duration: 9899.67123s;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#neptune .orbit-radius #text {
+  -webkit-animation-duration: 9899.67123s;
+          animation-duration: 9899.67123s;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#neptune .orbit-radius #text p::after {
+  content: "Neptune is the eighth and farthest known planet from the Sun in the Solar System. It is the fourth-largest planet by diameter and the third-largest by mass. Among the giant planets in the Solar System, Neptune is the most dense. Neptune is 17 times the mass of Earth and is slightly more massive than its near-twin Uranus, which is 15 times the mass of Earth and slightly larger than Neptune.";
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#neptune .orbit-radius .planet {
@@ -2238,8 +3437,13 @@ input:checked[name=zoom]#x100 ~ .content div.orbit#neptune .orbit-radius .planet
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#neptune:hover .orbit-radius {
+  font-size: 900px;
   width: calc(100% + 900px + 2px);
   left: -451px;
+}
+
+input:checked[name=zoom]#x100 ~ .content div.orbit#neptune:hover .orbit-radius #text {
+  opacity: 1;
 }
 
 input:checked[name=zoom]#x100 ~ .content div.orbit#neptune:hover .orbit-radius .planet {
