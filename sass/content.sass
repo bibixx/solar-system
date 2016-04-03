@@ -4,8 +4,6 @@ input[type=radio]
 .content
   #text
     opacity: 0
-    // visibility: hidden
-    cursor: default
     position: absolute
     width: 542px
     bottom: 1em
@@ -57,6 +55,7 @@ input[type=radio]
         height: 4px
         border-radius: 50%
         background-size: 100% 100%
+        position: relative
         +transition
 
         &::before
@@ -73,9 +72,9 @@ input:checked
     &#text
       & ~ .content input:checked + label.orbit #text, & ~ .content input:checked + label#sun #text
         opacity: 1 !important
+        cursor: default
 
   &[type="radio"]
-    opacity: 0.5
     @each $z in $zoom-arr
       $i: str-replace( inspect($z), "\." )
 
@@ -180,3 +179,15 @@ input:checked
                 #text
                   animation-duration: $orbit-time+s
                   animation-delay: $delay
+
+label[for=saturn].planet:after
+  content: ""
+  display: block
+  width: 227%
+  height: 64%
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  background: url("../img/saturn-belt.png")
+  background-size: 100% 100%

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Solar System model</title>
   <link rel="stylesheet" href="css/style.css" media="screen" charset="utf-8">
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -9,21 +10,25 @@
   <script src="js/script.js" charset="utf-8"></script>
 </head>
 <body>
+  <input type="radio" name="land" id="landing">
+  <label for="landing" class="landing">
+    <h1>Welcome in my little CSS3 based solar system model that is more than less to scale and is not using any JavaScript</h1>
+  </label>
   <div class="nav">
-    <input type="radio" name="zoom" id="x012" checked>
-    <label for="x012" class="first">x0.12</label>
+    <input type="radio" name="zoom" id="x003">
+    <label for="x003" class="first">x0.3</label>
+    <input type="radio" name="zoom" id="x012">
+    <label for="x012">x0.12</label>
     <input type="radio" name="zoom" id="x025">
     <label for="x025">x0.25</label>
     <input type="radio" name="zoom" id="x05">
     <label for="x05">x0.50</label>
-    <input type="radio" name="zoom" id="x1">
+    <input type="radio" name="zoom" id="x1" checked>
     <label for="x1">x1.00</label>
     <input type="radio" name="zoom" id="x2">
     <label for="x2">x2.00</label>
     <input type="radio" name="zoom" id="x4">
-    <label for="x4">x4.00</label>
-    <input type="radio" name="zoom" id="x8">
-    <label for="x8" class="last">x8.00</label>
+    <label for="x4" class="last">x4.00</label>
     <h2 class="zoom">Zoom</h2>
     <input type="radio" name="time" id="t1" checked>
     <label for="t1" class="first">x1.00</label>
