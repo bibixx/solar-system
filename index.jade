@@ -32,9 +32,13 @@ body
     
     div.content
       div#stars
-      div#sun
+      input(type="radio", name="zoom-planet", id="input_sun")
+      label(id="sun", for="input_sun")
+        div#text
+          p
       each val in ['neptune', 'uranus', 'saturn', 'jupiter', 'mars', 'earth', 'venus', 'mercury']
-        div.orbit(id="#{val}")
+        input(type="radio", name="zoom-planet", id="input_#{val}")
+        label.orbit(id="#{val}", for="input_#{val}")
           div.orbit-radius
             div#text
               p
