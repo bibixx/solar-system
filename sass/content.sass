@@ -112,6 +112,7 @@ input:checked
   @for $i from 0 to length($planets)
     $planet: nth($planets, $i+1)
     $des: nth($desc, $i+1)
+
     @each $z in $zoom-arr
       $i: str-replace( inspect($z), "\." )
 
@@ -134,7 +135,7 @@ input:checked
             animation-delay: $delay
 
             #text
-              animation-duration: nth($planet, 4)/365*60s
+              animation-duration: $orbit-time+s
               animation-delay: $delay
               p::after
                 content: "#{$des}"
@@ -159,3 +160,21 @@ input:checked
               width: $z*$pw*1px
               height: $z*$pw*1px
               font-size: $z*$pw*1px
+
+    @each $z in $time-arr
+      $i: str-replace( inspect($z), "\." )
+      &[name=time]#t#{$i}
+        & ~ h2.time::after
+          content: "(1 min = #{round($z*10000)/10000} earth year)"
+
+        & ~ .content
+          .orbit##{unquote(nth($planet, 1))}
+            $orbit-time: (nth($planet, 4)/365*60)/#{$z}
+
+            .orbit-radius
+              animation-duration: $orbit-time+s
+              animation-delay: $delay
+
+              #text
+                animation-duration: $orbit-time+s
+                animation-delay: $delay

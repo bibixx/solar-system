@@ -1,3 +1,6 @@
+- var zoomArr = [0.12, 0.25, 0.5, 1, 4, 10, 20]
+- var timeArr = [0.12, 0.25, 0.5, 1, 4, 10, 20, 100, 1000, 5000]
+
 doctype html
 head
   meta(charset="utf-8")
@@ -9,9 +12,7 @@ head
   script(src="js/script.js", charset="utf-8")
 body
   div.nav
-    h2 Zoom
-    - var zoomArr = [0.12, 0.25, 0.5, 1, 4, 10, 20]
-    - var def = 4
+    - var def = 0.12
     - function to2period(a){
     -  var m = String(a*100)
     -  if(a>=1){
@@ -20,16 +21,47 @@ body
     -    return "0"+m.slice(0, m.length-2)+"."+m.slice(m.length-2)
     -  }
     - }
-    - each val in zoomArr
+    - for (n=0; n<zoomArr.length; n++)
+      - var val = zoomArr[n]
       - var x = String(val).replace(".","")
       if val != def
         input(type="radio", name="zoom", id="x#{x}")
       else
         input(type="radio", name="zoom", id="x#{x}" checked)
-      label(for="x#{x}")= "x"+to2period(val)
-    br.clear
-    h2 Time (1 min = 1 earth year)    
+        
+      if n==0
+        label(class="first", for="x#{x}")= "x"+to2period(val)
+      else if n==zoomArr.length-1
+        label(class="last", for="x#{x}")= "x"+to2period(val)
+      else
+        label(for="x#{x}")= "x"+to2period(val)
+    h2.zoom Zoom
     
+    - var def = 1
+    - function to2period(a){
+    -  var m = String(a*100)
+    -  if(a>=1){
+    -    return m.slice(0, m.length-2)+"."+m.slice(m.length-2)
+    -  } else {
+    -    return "0"+m.slice(0, m.length-2)+"."+m.slice(m.length-2)
+    -  }
+    - }
+    - for (n=0; n<timeArr.length; n++)
+      - var val = timeArr[n]
+      - var x = String(val).replace(".","")
+      if val != def
+        input(type="radio", name="time", id="t#{x}")
+      else
+        input(type="radio", name="time", id="t#{x}" checked)
+      
+      if n==0
+        label(class="first", for="t#{x}")= "x"+to2period(val)
+      else if n==timeArr.length-1
+        label(class="last", for="t#{x}")= "x"+to2period(val)
+      else
+        label(for="t#{x}")= "x"+to2period(val)
+    h2.time Time 
+      
     div.content
       div#stars
       input(type="radio", name="zoom-planet", id="input_sun")

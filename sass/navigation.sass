@@ -6,14 +6,33 @@
   position: absolute
   bottom: 8px
   right: 8px
-  padding: 5px
+  padding: 17px
+
+  display: flex
+  flex-wrap: wrap
+  flex-direction: row
+  align-items: flex-start
+  justify-content: flex-start
+  width: 700px
 
   & > h2
     color: white
     margin: 5px 0px
+    width: 100%
+
+    &.zoom
+      order: 1
+    &.time
+      order: 3
 
   & > input
     display: none
+
+    &[name=zoom] + label
+      order: 2
+
+    &[name=time] + label
+      order: 4
 
   & > label
     display: block
@@ -22,14 +41,15 @@
     color: white
     border: 1px solid rgba(255,255,255,0.5)
     border-left: none
+    border-radius: 0
     cursor: pointer
     +transition
 
-    &:first-of-type
+    &.first
       border-left: 1px solid rgba(255,255,255,0.5)
       border-radius: 5px 0px 0px 5px
 
-    &:last-of-type
+    &.last
       border-radius: 0px 5px 5px 0px
 
     &:hover
