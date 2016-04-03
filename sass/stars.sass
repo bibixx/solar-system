@@ -5,6 +5,15 @@
   $stars: "235px 54px "+$star-color
   @for $i from 0 to 1000
     $star-color: "rgba(255,255,255,"+(random(30)+10)/100+")"
-    $stars: unquote($stars)+", "+random(2000)+"px "+random(2000)+"px "+$star-color
+    $stars: unquote($stars)+", "+unquote(random(2500)-1250)+"px "+unquote(random(2500)-1250)+"px "+$star-color
 
   box-shadow: unquote($stars)
+  position: absolute
+  top: 50%
+  left: 50%
+  +transition
+
+@for $i from 1 to length($zoom-arr)+1
+  $z: str-replace( inspect(nth($zoom-arr, $i)), "\." )
+  input:checked[type="radio"][name=zoom]#x#{$z} ~ .content #stars
+    transform: scale(1+$i/10) translate(-50%, -50%)
