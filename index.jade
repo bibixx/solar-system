@@ -1,5 +1,5 @@
-- var zoomArr = [0.12, 0.25, 0.5, 1, 4, 10, 20]
-- var timeArr = [0.12, 0.25, 0.5, 1, 4, 10, 20, 100, 1000, 5000]
+- var zoomArr = [0.12, 0.25, 0.5, 1, 2, 4, 8]
+- var timeArr = [1, 5, 10, 20, 100, 1000, 2000]
 
 doctype html
 head
@@ -61,6 +61,11 @@ body
       else
         label(for="t#{x}")= "x"+to2period(val)
     h2.time Time 
+      
+    h2.text Other options
+    label.text(for="text") Show descriptions
+    input(type="checkbox", id="text", checked)
+      
       
     div.content
       div#stars

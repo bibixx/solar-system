@@ -24,17 +24,25 @@
       order: 1
     &.time
       order: 3
+    &.text
+      order: 5
+
+  & > label
+    color: white
+    &.text
+      order: 6
 
   & > input
-    display: none
-
     &[name=zoom] + label
       order: 2
 
     &[name=time] + label
       order: 4
 
-  & > label
+    &#text
+      order: 7
+
+  & > input[name=time] + label, & > input[name=zoom] + label
     display: block
     float: left
     padding: 5px 10px
@@ -65,4 +73,4 @@
 
   & > input:checked
     & + label
-      background: rgba(255,255,255,0.5)
+      background: rgba(255,255,255,0.5) !important

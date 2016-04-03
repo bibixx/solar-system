@@ -1,9 +1,10 @@
-.content
-  input
-    display: none
+input[type=radio]
+  display: none
 
+.content
   #text
     opacity: 0
+    // visibility: hidden
     cursor: default
     position: absolute
     width: 542px
@@ -68,113 +69,114 @@
           transform: rotate(-45deg)
 
 input:checked
-  @each $z in $zoom-arr
-    $i: str-replace( inspect($z), "\." )
+  &[type="checkbox"]
+    &#text
+      & ~ .content input:checked + label.orbit #text, & ~ .content input:checked + label#sun #text
+        opacity: 1 !important
 
-    &[name=zoom]#x#{$i} ~ .content
-      #sun
-        cursor: pointer
-        width: $z*$earth-size*(109+3000)+px
-        height: $z*$earth-size*(109+3000)+px
-        font-size: $z*$earth-size*(109+3000)+px
-        +center(true)
-
-        &::before
-          content: ""
-          display: block
-          width: $z*$earth-size*109px
-          height: $z*$earth-size*109px
-          background: url("../img/sun.png")
-          background-size: 100% 100%
-          border-radius: 50%
-          box-shadow: 0em 0em 0.3em 0em fade-out(red, 0.5)
-          +center(true)
-          +transition
-
-        #text p
-          font-size: 16px
-          margin: 0
-          &::after
-            content: "#{$sun-desc}"
-
-
-      input:checked + label#sun
-        &::before
-          width: $z*$earth-size*30*109px
-          height: $z*$earth-size*30*109px
-
-        #text
-          opacity: 1
-
-  $orbit-time: nth(nth($planets, 8), 4)/365*60
-  $delay: -+random( round($orbit-time) )+s
-
-  @for $i from 0 to length($planets)
-    $planet: nth($planets, $i+1)
-    $des: nth($desc, $i+1)
-
+  &[type="radio"]
+    opacity: 0.5
     @each $z in $zoom-arr
       $i: str-replace( inspect($z), "\." )
 
       &[name=zoom]#x#{$i} ~ .content
-
-        .orbit##{unquote(nth($planet, 1))}
+        #sun
           cursor: pointer
-          width: $z*nth($planet, 2)*$distance*2px
-          height: $z*nth($planet, 2)*$distance*2px
+          width: $z*$earth-size*(109+3000)+px
+          height: $z*$earth-size*(109+3000)+px
+          font-size: $z*$earth-size*(109+3000)+px
+          +center(true)
 
-          $orbit-time: nth($planet, 4)/365*60
+          &::before
+            content: ""
+            display: block
+            width: $z*$earth-size*109px
+            height: $z*$earth-size*109px
+            background: url("../img/sun.png")
+            background-size: 100% 100%
+            border-radius: 50%
+            box-shadow: 0em 0em 0.3em 0em fade-out(red, 0.5)
+            +center(true)
+            +transition
 
-          .orbit-radius
-            $pw: nth($planet, 3)*$earth-size
-            font-size: $z*$pw*1px
-            display: inline-block
-            width: calc(100% + #{$z*$pw*1px} + 2px)
-            left: ($z*($pw/2) + 1)*-1px
-            animation-duration: $orbit-time+s
-            animation-delay: $delay
+          #text p
+            font-size: 16px
+            margin: 0
+            &::after
+              content: "#{$sun-desc}"
 
-            #text
-              animation-duration: $orbit-time+s
-              animation-delay: $delay
-              p::after
-                content: "#{$des}"
 
-            .planet
-              width: $z*$pw*1px
-              height: $z*$pw*1px
-              background-image: url("../img/#{unquote(nth($planet, 1))}.png")
-              font-size: $z*$pw*1px
+        input:checked + label#sun
+          &::before
+            width: $z*$earth-size*30*109px
+            height: $z*$earth-size*30*109px
 
-        input:checked + label.orbit##{unquote(nth($planet, 1))}
-          .orbit-radius
-            $pw: round( nth($planet, 3)*$earth-size*1000 )
-            font-size: $z*$pw*1px
-            width: calc(100% + #{$z*$pw*1px} + 2px)
-            left: ($z*($pw/2) + 1)*-1px
+    $orbit-time: nth(nth($planets, 8), 4)/365*60
+    $delay: -+random( round($orbit-time) )+s
 
-            #text
-              opacity: 1
+    @for $i from 0 to length($planets)
+      $planet: nth($planets, $i+1)
+      $des: nth($desc, $i+1)
 
-            .planet
-              width: $z*$pw*1px
-              height: $z*$pw*1px
-              font-size: $z*$pw*1px
+      @each $z in $zoom-arr
+        $i: str-replace( inspect($z), "\." )
 
-    @each $z in $time-arr
-      $i: str-replace( inspect($z), "\." )
-      &[name=time]#t#{$i}
-        & ~ h2.time::after
-          content: "(1 min = #{round($z*10000)/10000} earth year)"
+        &[name=zoom]#x#{$i} ~ .content
 
-        & ~ .content
           .orbit##{unquote(nth($planet, 1))}
-            $orbit-time: (nth($planet, 4)/365*60)/#{$z}
+            cursor: pointer
+            width: $z*nth($planet, 2)*$distance*2px
+            height: $z*nth($planet, 2)*$distance*2px
+
+            $orbit-time: nth($planet, 4)/365*60
 
             .orbit-radius
+              $pw: nth($planet, 3)*$earth-size
+              font-size: $z*$pw*1px
+              display: inline-block
+              width: calc(100% + #{$z*$pw*1px} + 2px)
+              left: ($z*($pw/2) + 1)*-1px
               animation-duration: $orbit-time+s
               animation-delay: $delay
 
               #text
                 animation-duration: $orbit-time+s
                 animation-delay: $delay
+                p::after
+                  content: "#{$des}"
+
+              .planet
+                width: $z*$pw*1px
+                height: $z*$pw*1px
+                background-image: url("../img/#{unquote(nth($planet, 1))}.png")
+                font-size: $z*$pw*1px
+
+          input:checked + label.orbit##{unquote(nth($planet, 1))}
+            .orbit-radius
+              $pw: round( nth($planet, 3)*$earth-size*1000 )
+              font-size: $z*$pw*1px
+              width: calc(100% + #{$z*$pw*1px} + 2px)
+              left: ($z*($pw/2) + 1)*-1px
+
+              .planet
+                width: $z*$pw*1px
+                height: $z*$pw*1px
+                font-size: $z*$pw*1px
+
+      @each $z in $time-arr
+        $i: str-replace( inspect($z), "\." )
+        &[name=time]#t#{$i}
+          & ~ h2.time::after
+            content: "(1 min = #{round($z*10000)/10000} earth year)"
+
+          & ~ .content
+            .orbit##{unquote(nth($planet, 1))}
+              $orbit-time: (nth($planet, 4)/365*60)/#{$z}
+
+              .orbit-radius
+                animation-duration: $orbit-time+s
+                animation-delay: $delay
+
+                #text
+                  animation-duration: $orbit-time+s
+                  animation-delay: $delay
