@@ -1,5 +1,5 @@
 # Solar system
-Solar System made entierly in CSS. No line of JS whatsoever.
+Solar System made entirely in CSS. No line of JS whatsoever.
 
 Features:
 * Possibility to zoom in and out
